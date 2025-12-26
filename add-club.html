@@ -4,16 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Add Interact Club</title>
-<link rel="stylesheet" href="style.css"> <!-- Use your existing homepage CSS -->
+<link rel="stylesheet" href="style.css">
 <style>
-  body { font-family: 'Poppins', sans-serif; margin:0; padding:0; background:#f9f9f9; }
+  body { font-family: 'Poppins', sans-serif; background:#f9f9f9; margin:0; padding:0; }
   header { background:#0a74da; color:white; padding:1rem; text-align:center; }
   header a { color:white; text-decoration:none; font-weight:bold; margin-left:20px; }
   h1 { text-align:center; margin:2rem 0; color:#333; }
-  form { max-width:500px; margin: auto; background:white; padding:2rem; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1);}
-  input { width:100%; padding:0.8rem; margin:0.5rem 0; border-radius:5px; border:1px solid #ccc; }
-  button { width:100%; padding:1rem; margin-top:1rem; border:none; border-radius:5px; background:#0a74da; color:white; font-size:1rem; cursor:pointer; transition:0.3s; }
-  button:hover { background:#065bb5; }
+  form { max-width:500px; margin:auto; background:white; padding:2rem; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1);}
+  input, ul { width:100%; padding:0.8rem; margin:0.5rem 0; border-radius:5px; border:1px solid #ccc; }
+  ul { list-style:none; padding:0; max-height:150px; overflow-y:auto; }
+  li { padding:0.5rem; cursor:pointer; border-bottom:1px solid #ddd; }
+  li:hover { background:#efefef; }
+  button { width:100%; padding:1rem; border:none; border-radius:5px; background:#0a74da; color:white; font-size:1rem; cursor:pointer; }
 </style>
 </head>
 <body>
@@ -24,21 +26,62 @@
 </header>
 
 <h1>Add a New Club</h1>
+
 <form id="clubForm">
   <input type="text" name="name" placeholder="Club Name" required>
-  <input type="text" name="country" placeholder="Country" required>
-  <input type="text" name="city" placeholder="City" required>
+
+  <!-- Free autocomplete -->
+  <input type="text" id="locationSearch" placeholder="Enter city or address" autocomplete="off" required>
+  <ul id="suggestions"></ul>
+
+  <input type="hidden" name="country" id="country">
+  <input type="hidden" name="city" id="city">
+  <input type="hidden" name="lat" id="lat">
+  <input type="hidden" name="lng" id="lng">
+
   <input type="email" name="email" placeholder="Email">
   <input type="url" name="instagram" placeholder="Instagram">
-  <input type="number" step="any" name="lat" placeholder="Latitude" required>
-  <input type="number" step="any" name="lng" placeholder="Longitude" required>
   <button type="submit">Add Club</button>
 </form>
 
 <script>
 const scriptURL = 'https://script.google.com/macros/s/AKfycbwBGCTLG_jeNKDx6opCvXxVsYhUEZdLDQK5IP1XN32tEOCToL1mRTYpyXJ0fmjtlbdxIA/exec';
 
-document.getElementById('clubForm').addEventListener('submit', e => {
+const input = document.getElementById("locationSearch");
+const suggestionsList = document.getElementById("suggestions");
+
+input.addEventListener("input", async () => {
+  const query = input.value.trim();
+  if (query.length < 3) {
+    suggestionsList.innerHTML = "";
+    return;
+  }
+
+  const url = `https://nominatim.openstreetmap.org/search?format=json&addressdetails=1&q=${encodeURIComponent(query)}`;
+
+  const res = await fetch(url);
+  const places = await res.json();
+
+  suggestionsList.innerHTML = "";
+  places.forEach(place => {
+    const li = document.createElement("li");
+    li.textContent = place.display_name;
+    li.addEventListener("click", () => {
+      document.getElementById("lat").value = place.lat;
+      document.getElementById("lng").value = place.lon;
+
+      const address = place.address;
+      document.getElementById("city").value = address.city || address.town || address.village || "";
+      document.getElementById("country").value = address.country || "";
+
+      input.value = place.display_name;
+      suggestionsList.innerHTML = "";
+    });
+    suggestionsList.appendChild(li);
+  });
+});
+
+document.getElementById("clubForm").addEventListener("submit", e => {
   e.preventDefault();
   const formData = new FormData(e.target);
 
@@ -61,7 +104,7 @@ document.getElementById('clubForm').addEventListener('submit', e => {
   })
   .then(response => response.json())
   .then(data => alert('Club added successfully!'))
-  .catch(error => alert('Error adding club: ' + error));
+  .catch(error => alert('Error: '+error));
 });
 </script>
 
