@@ -146,6 +146,7 @@
 
     <input type="email" name="email" placeholder="Club Email (optional)">
     <input type="url" name="instagram" placeholder="Instagram Link (optional)">
+    <input type="tel" name="phone" placeholder="Phone Number (optional)">
 
     <button type="submit">Add Club</button>
   </form>
@@ -204,13 +205,38 @@ searchInput.addEventListener("input", async () => {
       searchInput.value = place.display_name;
       suggestions.innerHTML = "";
 
-      // Update map
+      // Update map and marker
       map.setView([lat, lng], 13);
       if (marker) map.removeLayer(marker);
-      marker = L.marker([lat, lng]).addTo(map);
+      marker = L.marker([lat, lng], { draggable: true }).addTo(map);
+
+      // Update hidden fields on drag
+      marker.on('dragend', () => {
+        const pos = marker.getLatLng();
+        document.getElementById("lat").value = pos.lat;
+        document.getElementById("lng").value = pos.lng;
+      });
     };
 
     suggestions.appendChild(li);
+  });
+});
+
+/* ---------- CLICK TO MOVE MARKER ---------- */
+map.on('click', function(e) {
+  const lat = e.latlng.lat;
+  const lng = e.latlng.lng;
+
+  document.getElementById("lat").value = lat;
+  document.getElementById("lng").value = lng;
+
+  if (marker) map.removeLayer(marker);
+  marker = L.marker([lat, lng], { draggable: true }).addTo(map);
+
+  marker.on('dragend', () => {
+    const pos = marker.getLatLng();
+    document.getElementById("lat").value = pos.lat;
+    document.getElementById("lng").value = pos.lng;
   });
 });
 
@@ -225,12 +251,14 @@ document.getElementById("clubForm").addEventListener("submit", async (e) => {
     lat: document.getElementById("lat").value,
     lng: document.getElementById("lng").value,
     email: e.target.email.value,
-    instagram: e.target.instagram.value
+    instagram: e.target.instagram.value,
+    phone: e.target.phone.value
   };
 
   try {
     await fetch(scriptURL, {
       method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload)
     });
 
@@ -248,4 +276,3 @@ document.getElementById("clubForm").addEventListener("submit", async (e) => {
 
 </body>
 </html>
-
