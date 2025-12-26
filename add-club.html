@@ -3,107 +3,246 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Add Interact Club</title>
-<link rel="stylesheet" href="style.css">
+<title>Add Interact Club | Interact Global Hub</title>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<!-- Leaflet (FREE MAP) -->
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+/>
+
 <style>
-  body { font-family: 'Poppins', sans-serif; background:#f9f9f9; margin:0; padding:0; }
-  header { background:#0a74da; color:white; padding:1rem; text-align:center; }
-  header a { color:white; text-decoration:none; font-weight:bold; margin-left:20px; }
-  h1 { text-align:center; margin:2rem 0; color:#333; }
-  form { max-width:500px; margin:auto; background:white; padding:2rem; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1);}
-  input, ul { width:100%; padding:0.8rem; margin:0.5rem 0; border-radius:5px; border:1px solid #ccc; }
-  ul { list-style:none; padding:0; max-height:150px; overflow-y:auto; }
-  li { padding:0.5rem; cursor:pointer; border-bottom:1px solid #ddd; }
-  li:hover { background:#efefef; }
-  button { width:100%; padding:1rem; border:none; border-radius:5px; background:#0a74da; color:white; font-size:1rem; cursor:pointer; }
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: #f4f7fb;
+    margin: 0;
+  }
+
+  header {
+    background: #0a74da;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  header a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .container {
+    max-width: 520px;
+    margin: 3rem auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #222;
+  }
+
+  input {
+    width: 100%;
+    padding: 0.9rem;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 0.95rem;
+  }
+
+  #map {
+    height: 250px;
+    border-radius: 10px;
+    margin-bottom: 1.2rem;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin-top: -0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    max-height: 180px;
+    overflow-y: auto;
+    background: white;
+  }
+
+  li {
+    padding: 0.6rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    border-bottom: 1px solid #eee;
+  }
+
+  li:hover {
+    background: #f0f4ff;
+  }
+
+  button {
+    width: 100%;
+    padding: 1rem;
+    background: #0a74da;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background: #095bb0;
+  }
+
+  .note {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #666;
+    margin-top: 1rem;
+  }
 </style>
 </head>
 <body>
 
 <header>
-  <a href="index.html">&larr; Home</a>
-  Add a New Club
+  <a href="index.html">← Home</a>
+  <span>Add Interact Club</span>
 </header>
 
-<h1>Add a New Club</h1>
+<div class="container">
+  <h1>Add Your Club</h1>
 
-<form id="clubForm">
-  <input type="text" name="name" placeholder="Club Name" required>
+  <form id="clubForm">
+    <input type="text" name="name" placeholder="Interact Club Name" required>
 
-  <!-- Free autocomplete -->
-  <input type="text" id="locationSearch" placeholder="Enter city or address" autocomplete="off" required>
-  <ul id="suggestions"></ul>
+    <input
+      type="text"
+      id="locationSearch"
+      placeholder="Search city or address"
+      autocomplete="off"
+      required
+    >
+    <ul id="suggestions"></ul>
 
-  <input type="hidden" name="country" id="country">
-  <input type="hidden" name="city" id="city">
-  <input type="hidden" name="lat" id="lat">
-  <input type="hidden" name="lng" id="lng">
+    <!-- MAP PREVIEW -->
+    <div id="map"></div>
 
-  <input type="email" name="email" placeholder="Email">
-  <input type="url" name="instagram" placeholder="Instagram">
-  <button type="submit">Add Club</button>
-</form>
+    <!-- Hidden fields -->
+    <input type="hidden" id="city">
+    <input type="hidden" id="country">
+    <input type="hidden" id="lat">
+    <input type="hidden" id="lng">
+
+    <input type="email" name="email" placeholder="Club Email (optional)">
+    <input type="url" name="instagram" placeholder="Instagram Link (optional)">
+
+    <button type="submit">Add Club</button>
+  </form>
+
+  <div class="note">
+    Clubs will appear after verification 🌍
+  </div>
+</div>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <script>
-const scriptURL = 'https://script.google.com/macros/s/AKfycbzyyfdmgVrDlLL-HOc1kOqndenis6PueCK_eG5tj5Lt4SwGM584CrwJddzLJAiUPtPnIg/exec';
-const input = document.getElementById("locationSearch");
-const suggestionsList = document.getElementById("suggestions");
+const scriptURL = "https://script.google.com/macros/s/AKfycbzyyfdmgVrDlLL-HOc1kOqndenis6PueCK_eG5tj5Lt4SwGM584CrwJddzLJAiUPtPnIg/exec";
 
-input.addEventListener("input", async () => {
-  const query = input.value.trim();
+/* ---------- MAP SETUP ---------- */
+const map = L.map("map").setView([0, 0], 2);
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  attribution: "© OpenStreetMap"
+}).addTo(map);
+
+let marker;
+
+/* ---------- AUTOCOMPLETE ---------- */
+const searchInput = document.getElementById("locationSearch");
+const suggestions = document.getElementById("suggestions");
+
+searchInput.addEventListener("input", async () => {
+  const query = searchInput.value.trim();
   if (query.length < 3) {
-    suggestionsList.innerHTML = "";
+    suggestions.innerHTML = "";
     return;
   }
 
-  const url = `https://nominatim.openstreetmap.org/search?format=json&addressdetails=1&q=${encodeURIComponent(query)}`;
-
-  const res = await fetch(url);
+  const res = await fetch(
+    `https://nominatim.openstreetmap.org/search?format=json&addressdetails=1&q=${encodeURIComponent(query)}`
+  );
   const places = await res.json();
 
-  suggestionsList.innerHTML = "";
+  suggestions.innerHTML = "";
   places.forEach(place => {
     const li = document.createElement("li");
     li.textContent = place.display_name;
-    li.addEventListener("click", () => {
-      document.getElementById("lat").value = place.lat;
-      document.getElementById("lng").value = place.lon;
 
-      const address = place.address;
-      document.getElementById("city").value = address.city || address.town || address.village || "";
-      document.getElementById("country").value = address.country || "";
+    li.onclick = () => {
+      const lat = parseFloat(place.lat);
+      const lng = parseFloat(place.lon);
 
-      input.value = place.display_name;
-      suggestionsList.innerHTML = "";
-    });
-    suggestionsList.appendChild(li);
+      document.getElementById("lat").value = lat;
+      document.getElementById("lng").value = lng;
+      document.getElementById("city").value =
+        place.address.city || place.address.town || place.address.village || "";
+      document.getElementById("country").value =
+        place.address.country || "";
+
+      searchInput.value = place.display_name;
+      suggestions.innerHTML = "";
+
+      // Update map
+      map.setView([lat, lng], 13);
+      if (marker) map.removeLayer(marker);
+      marker = L.marker([lat, lng]).addTo(map);
+    };
+
+    suggestions.appendChild(li);
   });
 });
 
-document.getElementById("clubForm").addEventListener("submit", e => {
+/* ---------- FORM SUBMIT ---------- */
+document.getElementById("clubForm").addEventListener("submit", async (e) => {
   e.preventDefault();
-  const formData = new FormData(e.target);
 
-  const club = {
-    id: formData.get('name').toLowerCase().replace(/\s+/g, '-'),
-    slug: formData.get('name').toLowerCase().replace(/\s+/g, '-'),
-    name: formData.get('name'),
-    country: formData.get('country'),
-    city: formData.get('city'),
-    email: formData.get('email'),
-    instagram: formData.get('instagram'),
-    lat: parseFloat(formData.get('lat')),
-    lng: parseFloat(formData.get('lng'))
+  const payload = {
+    name: e.target.name.value,
+    city: document.getElementById("city").value,
+    country: document.getElementById("country").value,
+    lat: document.getElementById("lat").value,
+    lng: document.getElementById("lng").value,
+    email: e.target.email.value,
+    instagram: e.target.instagram.value
   };
 
-  fetch(scriptURL, {
-    method: 'POST',
-    body: JSON.stringify(club),
-    headers: { 'Content-Type': 'application/json' }
-  })
-  .then(response => response.json())
-  .then(data => alert('Club added successfully!'))
-  .catch(error => alert('Error: '+error));
+  try {
+    await fetch(scriptURL, {
+      method: "POST",
+      body: JSON.stringify(payload)
+    });
+
+    alert("✅ Club submitted successfully!");
+    e.target.reset();
+    if (marker) map.removeLayer(marker);
+    map.setView([0, 0], 2);
+
+  } catch (err) {
+    alert("❌ Submission failed. Please try again.");
+    console.error(err);
+  }
 });
 </script>
 
