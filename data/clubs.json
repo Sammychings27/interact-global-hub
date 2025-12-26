@@ -1,6 +1,7 @@
 [
   {
     "id": "sample-interact-club",
+    "slug": "sample-interact-club",
     "name": "Sample Interact Club",
     "country": "South Africa",
     "city": "Cape Town",
@@ -12,3 +13,4 @@
     }
   }
 ]
+
