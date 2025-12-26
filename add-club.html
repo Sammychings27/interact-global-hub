@@ -1,187 +1,251 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Add Interact Club</title>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f9f9f9;
-      margin: 0;
-      padding: 2rem;
-    }
-    h1 {
-      text-align: center;
-      color: #007BFF;
-      margin-bottom: 2rem;
-    }
-    form {
-      max-width: 600px;
-      margin: 0 auto;
-      background: white;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-    input, button {
-      width: 100%;
-      padding: 0.75rem;
-      margin-bottom: 1rem;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-size: 1rem;
-      box-sizing: border-box;
-    }
-    button {
-      background-color: #007BFF;
-      color: white;
-      border: none;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    button:hover {
-      background-color: #0056b3;
-    }
-    .success {
-      color: green;
-      font-weight: bold;
-      text-align: center;
-      margin-top: 1rem;
-    }
-    .error {
-      color: red;
-      font-weight: bold;
-      text-align: center;
-      margin-top: 1rem;
-    }
-    #map {
-      width: 100%;
-      height: 300px;
-      border-radius: 12px;
-      margin-bottom: 1rem;
-    }
-    .home-link {
-      display: block;
-      text-align: center;
-      margin-top: 2rem;
-      font-weight: bold;
-      text-decoration: none;
-      color: #007BFF;
-    }
-    .home-link:hover {
-      color: #0056b3;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add Interact Club | Interact Global Hub</title>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<!-- Leaflet (FREE MAP) -->
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+/>
+
+<style>
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: #f4f7fb;
+    margin: 0;
+  }
+
+  header {
+    background: #0a74da;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  header a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .container {
+    max-width: 520px;
+    margin: 3rem auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #222;
+  }
+
+  input {
+    width: 100%;
+    padding: 0.9rem;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 0.95rem;
+  }
+
+  #map {
+    height: 250px;
+    border-radius: 10px;
+    margin-bottom: 1.2rem;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin-top: -0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    max-height: 180px;
+    overflow-y: auto;
+    background: white;
+  }
+
+  li {
+    padding: 0.6rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    border-bottom: 1px solid #eee;
+  }
+
+  li:hover {
+    background: #f0f4ff;
+  }
+
+  button {
+    width: 100%;
+    padding: 1rem;
+    background: #0a74da;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background: #095bb0;
+  }
+
+  .note {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #666;
+    margin-top: 1rem;
+  }
+</style>
 </head>
 <body>
 
-<h1>Add Your Interact Club</h1>
+<header>
+  <a href="index.html">← Home</a>
+  <span>Add Interact Club</span>
+</header>
 
-<form id="clubForm">
-  <input type="text" id="name" placeholder="Club Name *" required>
-  <input type="text" id="city" placeholder="City *" required>
-  <input type="text" id="country" placeholder="Country *" required>
-  <input type="email" id="email" placeholder="Email *" required>
-  <input type="text" id="instagram" placeholder="Instagram Handle (Optional)">
-  <input type="tel" id="phone" placeholder="Phone Number (Optional)">
-  
-  <!-- Hidden Lat/Lng fields -->
-  <input type="hidden" id="lat" name="lat">
-  <input type="hidden" id="lng" name="lng">
+<div class="container">
+  <h1>Add Your Club</h1>
 
-  <div id="map"></div>
-  <button type="submit">Submit Club</button>
-</form>
+  <form id="clubForm">
+    <input type="text" name="name" placeholder="Interact Club Name" required>
 
-<div class="success" id="successMsg" style="display:none;">Club submitted successfully!</div>
-<div class="error" id="errorMsg" style="display:none;"></div>
+    <input
+      type="text"
+      id="locationSearch"
+      placeholder="Search city or address"
+      autocomplete="off"
+      required
+    >
+    <ul id="suggestions"></ul>
 
-<a href="https://sammychings27.github.io/interact-global-hub/index.html" class="home-link">Back to Homepage</a>
+    <!-- MAP PREVIEW -->
+    <div id="map"></div>
 
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <!-- Hidden fields -->
+    <input type="hidden" id="city">
+    <input type="hidden" id="country">
+    <input type="hidden" id="lat">
+    <input type="hidden" id="lng">
+
+    <input type="email" name="email" placeholder="Club Email (optional)">
+    <input type="url" name="instagram" placeholder="Instagram Link (optional)">
+
+    <button type="submit">Add Club</button>
+  </form>
+
+  <div class="note">
+    Clubs will appear after verification 🌍
+  </div>
+</div>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
 <script>
-  // Initialize map
-  const map = L.map('map').setView([-30.5595, 22.9375], 4); // Default South Africa center
+const scriptURL = "https://script.google.com/macros/s/AKfycbzyyfdmgVrDlLL-HOc1kOqndenis6PueCK_eG5tj5Lt4SwGM584CrwJddzLJAiUPtPnIg/exec";
 
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; OpenStreetMap contributors'
-  }).addTo(map);
+/* ---------- MAP SETUP ---------- */
+const map = L.map("map").setView([0, 0], 2);
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  attribution: "© OpenStreetMap"
+}).addTo(map);
 
-  // Add draggable marker
-  const marker = L.marker([-30.5595, 22.9375], {draggable:true}).addTo(map);
+let marker;
 
-  // Update hidden fields with marker position
-  function updateLatLng() {
-    const pos = marker.getLatLng();
-    document.getElementById('lat').value = pos.lat;
-    document.getElementById('lng').value = pos.lng;
+/* ---------- AUTOCOMPLETE ---------- */
+const searchInput = document.getElementById("locationSearch");
+const suggestions = document.getElementById("suggestions");
+
+searchInput.addEventListener("input", async () => {
+  const query = searchInput.value.trim();
+  if (query.length < 3) {
+    suggestions.innerHTML = "";
+    return;
   }
 
-  // Initial position
-  updateLatLng();
+  const res = await fetch(
+    `https://nominatim.openstreetmap.org/search?format=json&addressdetails=1&q=${encodeURIComponent(query)}`
+  );
+  const places = await res.json();
 
-  // When marker is dragged
-  marker.on('dragend', updateLatLng);
+  suggestions.innerHTML = "";
+  places.forEach(place => {
+    const li = document.createElement("li");
+    li.textContent = place.display_name;
 
-  // When map is clicked, move marker
-  map.on('click', function(e) {
-    marker.setLatLng(e.latlng);
-    updateLatLng();
-  });
+    li.onclick = () => {
+      const lat = parseFloat(place.lat);
+      const lng = parseFloat(place.lon);
 
-  const form = document.getElementById("clubForm");
-  const successMsg = document.getElementById("successMsg");
-  const errorMsg = document.getElementById("errorMsg");
+      document.getElementById("lat").value = lat;
+      document.getElementById("lng").value = lng;
+      document.getElementById("city").value =
+        place.address.city || place.address.town || place.address.village || "";
+      document.getElementById("country").value =
+        place.address.country || "";
 
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    successMsg.style.display = "none";
-    errorMsg.style.display = "none";
+      searchInput.value = place.display_name;
+      suggestions.innerHTML = "";
 
-    const requiredFields = ["name", "city", "country", "email"];
-    for (const id of requiredFields) {
-      if (!document.getElementById(id).value.trim()) {
-        errorMsg.textContent = "Please fill in all required fields (*)";
-        errorMsg.style.display = "block";
-        return;
-      }
-    }
-
-    const formData = {
-      name: document.getElementById("name").value.trim(),
-      city: document.getElementById("city").value.trim(),
-      country: document.getElementById("country").value.trim(),
-      lat: document.getElementById("lat").value.trim(),
-      lng: document.getElementById("lng").value.trim(),
-      email: document.getElementById("email").value.trim(),
-      instagram: document.getElementById("instagram").value.trim() || "",
-      phone: document.getElementById("phone").value.trim() || ""
+      // Update map
+      map.setView([lat, lng], 13);
+      if (marker) map.removeLayer(marker);
+      marker = L.marker([lat, lng]).addTo(map);
     };
 
-    try {
-      const response = await fetch("https://script.google.com/macros/s/AKfycbzyyfdmgVrDlLL-HOc1kOqndenis6PueCK_eG5tj5Lt4SwGM584CrwJddzLJAiUPtPnIg/exec", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData)
-      });
-
-      const result = await response.json();
-      if (result.success) {
-        successMsg.style.display = "block";
-        form.reset();
-        marker.setLatLng([-30.5595, 22.9375]);
-        updateLatLng();
-      } else {
-        errorMsg.textContent = "Error: " + (result.error || "Unknown error");
-        errorMsg.style.display = "block";
-      }
-    } catch (err) {
-      errorMsg.textContent = "Error: " + err.message;
-      errorMsg.style.display = "block";
-    }
+    suggestions.appendChild(li);
   });
+});
+
+/* ---------- FORM SUBMIT ---------- */
+document.getElementById("clubForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const payload = {
+    name: e.target.name.value,
+    city: document.getElementById("city").value,
+    country: document.getElementById("country").value,
+    lat: document.getElementById("lat").value,
+    lng: document.getElementById("lng").value,
+    email: e.target.email.value,
+    instagram: e.target.instagram.value
+  };
+
+  try {
+    await fetch(scriptURL, {
+      method: "POST",
+      body: JSON.stringify(payload)
+    });
+
+    alert("✅ Club submitted successfully!");
+    e.target.reset();
+    if (marker) map.removeLayer(marker);
+    map.setView([0, 0], 2);
+
+  } catch (err) {
+    alert("❌ Submission failed. Please try again.");
+    console.error(err);
+  }
+});
 </script>
 
 </body>
 </html>
+
