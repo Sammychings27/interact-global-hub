@@ -8,7 +8,7 @@
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-<!-- Leaflet (FREE MAP) -->
+<!-- Leaflet CSS -->
 <link
   rel="stylesheet"
   href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -210,7 +210,6 @@ searchInput.addEventListener("input", async () => {
       if (marker) map.removeLayer(marker);
       marker = L.marker([lat, lng], { draggable: true }).addTo(map);
 
-      // Update hidden fields on drag
       marker.on('dragend', () => {
         const pos = marker.getLatLng();
         document.getElementById("lat").value = pos.lat;
@@ -245,30 +244,39 @@ document.getElementById("clubForm").addEventListener("submit", async (e) => {
   e.preventDefault();
 
   const payload = {
-    name: e.target.name.value,
-    city: document.getElementById("city").value,
-    country: document.getElementById("country").value,
-    lat: document.getElementById("lat").value,
-    lng: document.getElementById("lng").value,
-    email: e.target.email.value,
-    instagram: e.target.instagram.value,
-    phone: e.target.phone.value
+    name: e.target.name.value.trim(),
+    city: document.getElementById("city").value.trim(),
+    country: document.getElementById("country").value.trim(),
+    lat: document.getElementById("lat").value.trim(),
+    lng: document.getElementById("lng").value.trim(),
+    email: e.target.email.value.trim(),
+    instagram: e.target.instagram.value.trim(),
+    phone: e.target.phone.value.trim()
   };
 
+  // Client-side validation
+  if (!payload.name) return alert("Club name is required");
+  if (!payload.lat || !payload.lng) return alert("Please select a location on the map");
+
   try {
-    await fetch(scriptURL, {
+    const response = await fetch(scriptURL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload)
     });
 
-    alert("✅ Club submitted successfully!");
-    e.target.reset();
-    if (marker) map.removeLayer(marker);
-    map.setView([0, 0], 2);
+    const result = await response.json();
+    if (result.success) {
+      alert("✅ Club submitted successfully!");
+      e.target.reset();
+      if (marker) map.removeLayer(marker);
+      map.setView([0, 0], 2);
+    } else {
+      alert("❌ Submission failed: " + result.error);
+    }
 
   } catch (err) {
-    alert("❌ Submission failed. Please try again.");
+    alert("❌ Submission failed: " + err.message);
     console.error(err);
   }
 });
