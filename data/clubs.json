@@ -1,0 +1,14 @@
+[
+  {
+    "id": "sample-interact-club",
+    "name": "Sample Interact Club",
+    "country": "South Africa",
+    "city": "Cape Town",
+    "email": "sample@interact.org",
+    "instagram": "https://instagram.com/sampleinteract",
+    "location": {
+      "lat": -33.9249,
+      "lng": 18.4241
+    }
+  }
+]
