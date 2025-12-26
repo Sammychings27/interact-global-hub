@@ -80,11 +80,14 @@
     list.forEach(club => {
       const li = document.createElement("li");
       li.innerHTML = `
-        <strong>${club.name}</strong><br>
-        ${club.city}, ${club.country}<br>
-        <a href="https://www.google.com/maps/search/?api=1&query=${club.location.lat},${club.location.lng}" target="_blank">
-          View on map
-        </a>
+  <strong>${club.name}</strong><br>
+  ${club.city}, ${club.country}<br>
+  <a href="../clubs/${club.slug}/">View club profile</a> ·
+  <a href="https://www.google.com/maps/search/?api=1&query=${club.location.lat},${club.location.lng}" target="_blank">
+    Map
+  </a>
+`;
+
       `;
       clubList.appendChild(li);
     });
