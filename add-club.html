@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add Interact Club</title>
+</head>
+<body>
+<h1>Add a New Club</h1>
+<form id="clubForm">
+  <input type="text" name="name" placeholder="Club Name" required><br>
+  <input type="text" name="country" placeholder="Country" required><br>
+  <input type="text" name="city" placeholder="City" required><br>
+  <input type="email" name="email" placeholder="Email"><br>
+  <input type="url" name="instagram" placeholder="Instagram"><br>
+  <input type="number" step="any" name="lat" placeholder="Latitude" required><br>
+  <input type="number" step="any" name="lng" placeholder="Longitude" required><br>
+  <button type="submit">Add Club</button>
+</form>
+
+<script>
+const scriptURL = 'https://script.google.com/macros/s/AKfycbwBGCTLG_jeNKDx6opCvXxVsYhUEZdLDQK5IP1XN32tEOCToL1mRTYpyXJ0fmjtlbdxIA/exec';
+
+document.getElementById('clubForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const formData = new FormData(e.target);
+
+  const club = {
+    id: formData.get('name').toLowerCase().replace(/\s+/g, '-'),
+    slug: formData.get('name').toLowerCase().replace(/\s+/g, '-'),
+    name: formData.get('name'),
+    country: formData.get('country'),
+    city: formData.get('city'),
+    email: formData.get('email'),
+    instagram: formData.get('instagram'),
+    lat: parseFloat(formData.get('lat')),
+    lng: parseFloat(formData.get('lng'))
+  };
+
+  fetch(scriptURL, {
+    method: 'POST',
+    body: JSON.stringify(club),
+    headers: { 'Content-Type': 'application/json' }
+  })
+  .then(response => response.json())
+  .then(data => alert('Club added successfully!'))
+  .catch(error => alert('Error adding club: ' + error));
+});
+</script>
+</body>
+</html>
