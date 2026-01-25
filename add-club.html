@@ -135,10 +135,8 @@
     >
     <ul id="suggestions"></ul>
 
-    <!-- MAP PREVIEW -->
     <div id="map"></div>
 
-    <!-- Hidden fields -->
     <input type="hidden" id="city">
     <input type="hidden" id="country">
     <input type="hidden" id="lat">
@@ -156,7 +154,6 @@
   </div>
 </div>
 
-<!-- Leaflet JS -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <script>
@@ -205,7 +202,6 @@ searchInput.addEventListener("input", async () => {
       searchInput.value = place.display_name;
       suggestions.innerHTML = "";
 
-      // Update map and marker
       map.setView([lat, lng], 13);
       if (marker) map.removeLayer(marker);
       marker = L.marker([lat, lng], { draggable: true }).addTo(map);
@@ -221,7 +217,7 @@ searchInput.addEventListener("input", async () => {
   });
 });
 
-/* ---------- CLICK TO MOVE MARKER ---------- */
+/* ---------- MAP CLICK ---------- */
 map.on('click', function(e) {
   const lat = e.latlng.lat;
   const lng = e.latlng.lng;
@@ -239,7 +235,7 @@ map.on('click', function(e) {
   });
 });
 
-/* ---------- FORM SUBMIT ---------- */
+/* ---------- FORM SUBMIT (FIXED) ---------- */
 document.getElementById("clubForm").addEventListener("submit", async (e) => {
   e.preventDefault();
 
@@ -254,9 +250,8 @@ document.getElementById("clubForm").addEventListener("submit", async (e) => {
     phone: e.target.phone.value.trim()
   };
 
-  // Client-side validation
   if (!payload.name) return alert("Club name is required");
-  if (!payload.lat || !payload.lng) return alert("Please select a location on the map");
+  if (!payload.lat || !payload.lng) return alert("Please select a location");
 
   try {
     const response = await fetch(scriptURL, {
@@ -265,18 +260,15 @@ document.getElementById("clubForm").addEventListener("submit", async (e) => {
       body: JSON.stringify(payload)
     });
 
-    const result = await response.json();
-    if (result.success) {
-      alert("✅ Club submitted successfully!");
-      e.target.reset();
-      if (marker) map.removeLayer(marker);
-      map.setView([0, 0], 2);
-    } else {
-      alert("❌ Submission failed: " + result.error);
-    }
+    await response.text(); // 🔥 FIX: don't parse JSON
+
+    alert("✅ Club submitted successfully!");
+    e.target.reset();
+    if (marker) map.removeLayer(marker);
+    map.setView([0, 0], 2);
 
   } catch (err) {
-    alert("❌ Submission failed: " + err.message);
+    alert("❌ Submission failed");
     console.error(err);
   }
 });
@@ -284,3 +276,4 @@ document.getElementById("clubForm").addEventListener("submit", async (e) => {
 
 </body>
 </html>
+
