@@ -9,10 +9,4 @@ let counter = setInterval(() => {
     }
 
     current++;
-}, 5); // speed (increase number for slower, decrease for faster)
-
-
-// Light/Dark mode toggle
-document.getElementById("theme-toggle").addEventListener("click", () => {
-    document.body.classList.toggle("light-mode");
-});
+}, 8); // medium speed
