@@ -9,4 +9,4 @@ let counter = setInterval(() => {
     }
 
     current++;
-}, 30); // medium speed
+}, 100); // medium speed
