@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sammychings27 Digital</title>
+
 <link rel="icon" type="image/x-icon" href="/favicon.png">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
@@ -40,7 +41,7 @@ body{
     overflow-x:hidden;
 }
 
-/* FLOATING LOGO */
+/* ================= LOGO ================= */
 .logo{
     position: fixed;
     top: 20px;
@@ -51,66 +52,32 @@ body{
     animation: float 3s ease-in-out infinite;
 }
 
-/* MAIN LOGO IMAGE */
 .logo img{
     width: clamp(80px, 7vw, 130px);
     height: auto;
     object-fit: contain;
     border-radius: 12px;
-    transition: all 0.3s ease;
     filter: drop-shadow(0 0 10px rgba(212,175,55,0.5));
+    transition: 0.3s;
 }
 
-/* HOVER EFFECT (desktop only feel) */
 .logo img:hover{
     transform: scale(1.06);
     filter: drop-shadow(0 0 14px rgba(212,175,55,0.8));
 }
 
-/* FLOAT ANIMATION */
 @keyframes float{
-    0%,100%{
-        transform: translateY(0);
-    }
-    50%{
-        transform: translateY(6px);
-    }
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(6px);}
 }
 
-/* =========================
-   TABLET
-========================= */
-@media (max-width: 1024px){
+@media(max-width:768px){
     .logo img{
-        width: clamp(70px, 9vw, 110px);
+        width:60px;
     }
 }
 
-/* =========================
-   MOBILE
-========================= */
-@media (max-width: 768px){
-    .logo{
-        top: 15px;
-        left: 15px;
-    }
-
-    .logo img{
-        width: clamp(55px, 12vw, 85px);
-        filter: drop-shadow(0 0 6px rgba(212,175,55,0.4));
-    }
-}
-
-/* =========================
-   SMALL MOBILE
-========================= */
-@media (max-width: 480px){
-    .logo img{
-        width: 50px;
-    }
-}
-
-/* NAV */
+/* ================= NAV ================= */
 header{
     display:flex;
     justify-content:flex-end;
@@ -128,7 +95,7 @@ nav a:hover{
     color:var(--gold);
 }
 
-/* HERO */
+/* ================= HERO ================= */
 .hero{
     height:100vh;
     display:flex;
@@ -143,8 +110,6 @@ nav a:hover{
     font-family:"Playfair Display", serif;
     font-size:58px;
     max-width:900px;
-    opacity:0;
-    transform:translateY(30px);
     animation:fadeUp 1s forwards;
 }
 
@@ -152,8 +117,7 @@ nav a:hover{
     margin-top:20px;
     color:var(--muted);
     max-width:600px;
-    opacity:0;
-    animation:fadeUp 1s .3s forwards;
+    animation:fadeUp 1.2s forwards;
 }
 
 .buttons{
@@ -175,9 +139,7 @@ nav a:hover{
     color:#000;
 }
 
-.primary:hover{
-    transform:scale(1.05);
-}
+.primary:hover{transform:scale(1.05);}
 
 .secondary{
     background:transparent;
@@ -190,21 +152,20 @@ nav a:hover{
     color:#000;
 }
 
-/* SECTIONS */
+/* ================= SECTIONS ================= */
 section{
     padding:100px 20px;
     max-width:1100px;
     margin:auto;
 }
 
-/* HEADINGS */
 h2{
     font-family:"Playfair Display", serif;
     font-size:34px;
     margin-bottom:20px;
 }
 
-/* GRID */
+/* ================= GRID ================= */
 .grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -215,8 +176,8 @@ h2{
     background:var(--card);
     padding:20px;
     border-radius:12px;
-    border:1px solid transparent;
     transition:.4s;
+    border:1px solid transparent;
 }
 
 .card:hover{
@@ -224,17 +185,34 @@ h2{
     border:1px solid var(--gold);
 }
 
-/* TRUST */
-.trust span{
-    margin-right:15px;
-    color:var(--muted);
-}
-
-/* CTA */
+/* ================= CTA SPLIT ================= */
 .cta{
-    text-align:center;
+    display:flex;
+    width:100%;
+    max-width:1100px;
+    margin:auto;
 }
 
+.cta-left,
+.cta-right{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:60px 20px;
+}
+
+.cta-left{
+    background:rgba(212,175,55,0.05);
+}
+
+.cta-right{
+    background:rgba(255,255,255,0.02);
+}
+
+/* BUTTONS */
 .whatsapp{
     display:inline-block;
     margin-top:20px;
@@ -243,13 +221,35 @@ h2{
     color:#fff;
     border-radius:30px;
     text-decoration:none;
+    transition:.3s;
 }
 
-/* SCROLL ANIMATION BASE */
+.whatsapp:hover{transform:scale(1.05);}
+
+.instagram{
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 20px;
+    border-radius:30px;
+    text-decoration:none;
+    background:linear-gradient(45deg,#f9ce34,#ee2a7b,#6228d7);
+    color:#fff;
+    transition:.3s;
+}
+
+.instagram:hover{transform:scale(1.05);}
+
+/* ================= TRUST ================= */
+.trust span{
+    margin-right:15px;
+    color:var(--muted);
+}
+
+/* ================= SCROLL ANIMATION ================= */
 .hidden{
     opacity:0;
     transform:translateY(40px);
-    transition:all 1s ease;
+    transition:1s ease;
 }
 
 .show{
@@ -257,28 +257,31 @@ h2{
     transform:translateY(0);
 }
 
-/* HERO ANIMATION */
 @keyframes fadeUp{
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
+    from{opacity:0; transform:translateY(30px);}
+    to{opacity:1; transform:translateY(0);}
 }
 
-/* MOBILE */
+/* ================= MOBILE ================= */
 @media(max-width:768px){
     .hero h1{font-size:34px;}
     header{justify-content:center;}
+
+    .cta{
+        flex-direction:column;
+    }
 }
 </style>
 </head>
 
 <body>
 
+<!-- LOGO -->
 <div class="logo">
-    <img src="favicon.png" alt="Sammychings27 Digital Logo">
+    <img src="favicon.png" alt="Logo">
 </div>
 
+<!-- NAV -->
 <header>
 <nav>
 <a href="#services">Services</a>
@@ -302,49 +305,21 @@ h2{
 <!-- SERVICES -->
 <section id="services" class="hidden">
 <h2>Services</h2>
-
 <div class="grid">
-<div class="card">
-<h3>Graphic Design</h3>
-<p>Posters, ads, flyers, and marketing visuals.</p>
-</div>
-
-<div class="card">
-<h3>Branding</h3>
-<p>Logos and identity systems that build trust.</p>
-</div>
-
-<div class="card">
-<h3>Social Media</h3>
-<p>Content designed for engagement and growth.</p>
-</div>
-
-<div class="card">
-<h3>Strategy</h3>
-<p>Align visuals with business goals.</p>
-</div>
+<div class="card"><h3>Graphic Design</h3><p>Posters, ads, flyers, and marketing visuals.</p></div>
+<div class="card"><h3>Branding</h3><p>Logos and identity systems that build trust.</p></div>
+<div class="card"><h3>Social Media</h3><p>Content designed for engagement and growth.</p></div>
+<div class="card"><h3>Strategy</h3><p>Align visuals with business goals.</p></div>
 </div>
 </section>
 
 <!-- WORK -->
 <section id="work" class="hidden">
 <h2>Selected Work</h2>
-
 <div class="grid">
-<div class="card">
-<h3>Lions Gold</h3>
-<p>Construction branding visuals.</p>
-</div>
-
-<div class="card">
-<h3>KStech</h3>
-<p>Tech branding and design systems.</p>
-</div>
-
-<div class="card">
-<h3>Chuma Bakery</h3>
-<p>Food branding & promotions.</p>
-</div>
+<div class="card"><h3>Lions Gold</h3><p>Construction branding visuals.</p></div>
+<div class="card"><h3>KStech</h3><p>Tech branding systems.</p></div>
+<div class="card"><h3>Chuma Bakery</h3><p>Food branding & promotions.</p></div>
 </div>
 </section>
 
@@ -359,22 +334,27 @@ h2{
 <!-- ABOUT -->
 <section id="about" class="hidden">
 <h2>About</h2>
-<p>
-Sammychings27 Digital is a creative agency focused on building strong, modern, and effective brand identities for businesses.
-</p>
+<p>Sammychings27 Digital is a creative agency focused on building strong, modern, and effective brand identities for businesses.</p>
 </section>
 
-<!-- CONTACT -->
+<!-- CONTACT SPLIT -->
 <section id="contact" class="cta hidden">
+
+<div class="cta-left">
 <h2>Let’s Work Together</h2>
 <p>Ready to upgrade your brand?</p>
+<a class="whatsapp" href="https://wa.me/message/HTDRKVXPOCGIE1" target="_blank">WhatsApp Us</a>
+</div>
 
-<a class="whatsapp" href="https://wa.me/message/HTDRKVXPOCGIE1" target="_blank">
-Contact on WhatsApp
-</a>
+<div class="cta-right">
+<h2>Follow Our Work</h2>
+<p>See our latest designs</p>
+<a class="instagram" href="https://instagram.com/sammychings27" target="_blank">Instagram</a>
+</div>
+
 </section>
 
-<!-- JS SCROLL ANIMATIONS -->
+<!-- SCROLL ANIMATION -->
 <script>
 const observer = new IntersectionObserver((entries)=>{
     entries.forEach(entry=>{
