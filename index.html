@@ -42,24 +42,71 @@ body{
 
 /* FLOATING LOGO */
 .logo{
-    position:fixed;
-    top:20px;
-    left:20px;
-    z-index:999;
-    animation:float 3s ease-in-out infinite;
+    position: fixed;
+    top: 20px;
+    left: 25px;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    animation: float 3s ease-in-out infinite;
 }
 
+/* MAIN LOGO IMAGE */
 .logo img{
-    width:60px;
-    height:60px;
-    object-fit:contain;
-    border-radius:12px; /* optional soft corners */
+    width: clamp(80px, 7vw, 130px);
+    height: auto;
+    object-fit: contain;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 0 10px rgba(212,175,55,0.5));
 }
 
-@media(max-width:768px){
+/* HOVER EFFECT (desktop only feel) */
+.logo img:hover{
+    transform: scale(1.06);
+    filter: drop-shadow(0 0 14px rgba(212,175,55,0.8));
+}
+
+/* FLOAT ANIMATION */
+@keyframes float{
+    0%,100%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(6px);
+    }
+}
+
+/* =========================
+   TABLET
+========================= */
+@media (max-width: 1024px){
     .logo img{
-        width:45px;
-        height:45px;
+        width: clamp(70px, 9vw, 110px);
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+@media (max-width: 768px){
+    .logo{
+        top: 15px;
+        left: 15px;
+    }
+
+    .logo img{
+        width: clamp(55px, 12vw, 85px);
+        filter: drop-shadow(0 0 6px rgba(212,175,55,0.4));
+    }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+@media (max-width: 480px){
+    .logo img{
+        width: 50px;
     }
 }
 
