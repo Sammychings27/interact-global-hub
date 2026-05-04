@@ -1,4 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <!-- Redirect immediately (0 seconds) to a new URL -->
-  <meta http-equiv="refresh" content="0; url=https://sammychings27.xyz/programmer/sammychings.html">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sammychings27 Digital</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --bg:#0b0b0b;
+    --text:#fff;
+    --muted:#b8b8b8;
+    --gold:#d4af37;
+    --card:#141414;
+}
+
+@media (prefers-color-scheme: light){
+    :root{
+        --bg:#f5f5f5;
+        --text:#111;
+        --muted:#444;
+        --card:#ffffff;
+    }
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Poppins, sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    overflow-x:hidden;
+}
+
+/* FLOATING LOGO */
+.logo{
+    position:fixed;
+    top:20px;
+    left:20px;
+    font-weight:800;
+    color:var(--gold);
+    letter-spacing:2px;
+    z-index:999;
+    animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(6px);}
+}
+
+/* NAV */
+header{
+    display:flex;
+    justify-content:flex-end;
+    padding:25px 40px;
+}
+
+nav a{
+    margin-left:20px;
+    text-decoration:none;
+    color:var(--muted);
+    transition:.3s;
+}
+
+nav a:hover{
+    color:var(--gold);
+}
+
+/* HERO */
+.hero{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+}
+
+.hero h1{
+    font-family:"Playfair Display", serif;
+    font-size:58px;
+    max-width:900px;
+    opacity:0;
+    transform:translateY(30px);
+    animation:fadeUp 1s forwards;
+}
+
+.hero p{
+    margin-top:20px;
+    color:var(--muted);
+    max-width:600px;
+    opacity:0;
+    animation:fadeUp 1s .3s forwards;
+}
+
+.buttons{
+    margin-top:30px;
+}
+
+.btn{
+    padding:12px 22px;
+    margin:10px;
+    border-radius:6px;
+    font-weight:600;
+    cursor:pointer;
+    border:none;
+    transition:.3s;
+}
+
+.primary{
+    background:var(--gold);
+    color:#000;
+}
+
+.primary:hover{
+    transform:scale(1.05);
+}
+
+.secondary{
+    background:transparent;
+    border:1px solid var(--gold);
+    color:var(--gold);
+}
+
+.secondary:hover{
+    background:var(--gold);
+    color:#000;
+}
+
+/* SECTIONS */
+section{
+    padding:100px 20px;
+    max-width:1100px;
+    margin:auto;
+}
+
+/* HEADINGS */
+h2{
+    font-family:"Playfair Display", serif;
+    font-size:34px;
+    margin-bottom:20px;
+}
+
+/* GRID */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:var(--card);
+    padding:20px;
+    border-radius:12px;
+    border:1px solid transparent;
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    border:1px solid var(--gold);
+}
+
+/* TRUST */
+.trust span{
+    margin-right:15px;
+    color:var(--muted);
+}
+
+/* CTA */
+.cta{
+    text-align:center;
+}
+
+.whatsapp{
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 20px;
+    background:#25D366;
+    color:#fff;
+    border-radius:30px;
+    text-decoration:none;
+}
+
+/* SCROLL ANIMATION BASE */
+.hidden{
+    opacity:0;
+    transform:translateY(40px);
+    transition:all 1s ease;
+}
+
+.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* HERO ANIMATION */
+@keyframes fadeUp{
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* MOBILE */
+@media(max-width:768px){
+    .hero h1{font-size:34px;}
+    header{justify-content:center;}
+}
+</style>
 </head>
+
+<body>
+
+<div class="logo">SC27 DIGITAL</div>
+
+<header>
+<nav>
+<a href="#services">Services</a>
+<a href="#work">Work</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+<h1>We Build Premium Brands That Dominate Attention</h1>
+<p>Design, branding, and digital strategy that elevate businesses to a professional level.</p>
+
+<div class="buttons">
+<button class="btn primary">Work With Us</button>
+<button class="btn secondary">View Work</button>
+</div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="hidden">
+<h2>Services</h2>
+
+<div class="grid">
+<div class="card">
+<h3>Graphic Design</h3>
+<p>Posters, ads, flyers, and marketing visuals.</p>
+</div>
+
+<div class="card">
+<h3>Branding</h3>
+<p>Logos and identity systems that build trust.</p>
+</div>
+
+<div class="card">
+<h3>Social Media</h3>
+<p>Content designed for engagement and growth.</p>
+</div>
+
+<div class="card">
+<h3>Strategy</h3>
+<p>Align visuals with business goals.</p>
+</div>
+</div>
+</section>
+
+<!-- WORK -->
+<section id="work" class="hidden">
+<h2>Selected Work</h2>
+
+<div class="grid">
+<div class="card">
+<h3>Lions Gold</h3>
+<p>Construction branding visuals.</p>
+</div>
+
+<div class="card">
+<h3>KStech</h3>
+<p>Tech branding and design systems.</p>
+</div>
+
+<div class="card">
+<h3>Chuma Bakery</h3>
+<p>Food branding & promotions.</p>
+</div>
+</div>
+</section>
+
+<!-- TRUST -->
+<section class="hidden trust">
+<h2>Trusted By</h2>
+<span>Lions Gold</span>
+<span>KStech</span>
+<span>Chuma Bakery</span>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="hidden">
+<h2>About</h2>
+<p>
+Sammychings27 Digital is a creative agency focused on building strong, modern, and effective brand identities for businesses.
+</p>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="cta hidden">
+<h2>Let’s Work Together</h2>
+<p>Ready to upgrade your brand?</p>
+
+<a class="whatsapp" href="https://wa.me/message/HTDRKVXPOCGIE1" target="_blank">
+Contact on WhatsApp
+</a>
+</section>
+
+<!-- JS SCROLL ANIMATIONS -->
+<script>
+const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add("show");
+        }
+    });
+});
+
+document.querySelectorAll(".hidden").forEach(el=>{
+    observer.observe(el);
+});
+</script>
+
+</body>
+</html>
