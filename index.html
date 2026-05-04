@@ -45,16 +45,22 @@ body{
     position:fixed;
     top:20px;
     left:20px;
-    font-weight:800;
-    color:var(--gold);
-    letter-spacing:2px;
     z-index:999;
     animation:float 3s ease-in-out infinite;
 }
 
-@keyframes float{
-    0%,100%{transform:translateY(0);}
-    50%{transform:translateY(6px);}
+.logo img{
+    width:60px;
+    height:60px;
+    object-fit:contain;
+    border-radius:12px; /* optional soft corners */
+}
+
+@media(max-width:768px){
+    .logo img{
+        width:45px;
+        height:45px;
+    }
 }
 
 /* NAV */
@@ -222,7 +228,9 @@ h2{
 
 <body>
 
-<div class="logo">SC27 DIGITAL</div>
+<div class="logo">
+    <img src="favicon.png" alt="Sammychings27 Digital Logo">
+</div>
 
 <header>
 <nav>
