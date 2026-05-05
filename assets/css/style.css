@@ -1,0 +1,121 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #0d0f14;
+    color: #e0e0e0;
+    transition: background 0.4s, color 0.4s;
+}
+
+.light-mode {
+    background-color: #f5f5f5;
+    color: #111;
+}
+
+header {
+    text-align: center;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #0a1f2d, #0f3d2e);
+}
+
+header h1 {
+    color: #4fc3f7;
+}
+
+#typing {
+    color: #a5d6a7;
+    font-weight: bold;
+}
+
+#theme-toggle {
+    margin-top: 15px;
+    padding: 8px 15px;
+    border: none;
+    background: #4fc3f7;
+    color: black;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    background: #111;
+    padding: 10px;
+}
+
+nav a {
+    color: #4fc3f7;
+    text-decoration: none;
+}
+
+.hero {
+    background: url('https://source.unsplash.com/1600x600/?river,nature') center/cover no-repeat;
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.hero-text {
+    background: rgba(0,0,0,0.6);
+    display: inline-block;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #81c784;
+    color: black;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+section {
+    padding: 50px 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+h2 {
+    border-bottom: 2px solid #1b5e20;
+    padding-bottom: 10px;
+}
+
+.skills-grid, .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.card {
+    background: #162029;
+    padding: 15px;
+    border-left: 4px solid #4fc3f7;
+    border-radius: 6px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.gallery img {
+    width: 100%;
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #111;
+    color: #888;
+}
