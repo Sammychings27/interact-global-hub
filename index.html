@@ -227,18 +227,42 @@ h2{
 .whatsapp:hover{transform:scale(1.05);}
 
 .instagram{
-    display:inline-block;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+
     margin-top:20px;
     padding:12px 20px;
+
     border-radius:30px;
     text-decoration:none;
-    background:linear-gradient(45deg,#f9ce34,#ee2a7b,#6228d7);
+
+    background:linear-gradient(
+        45deg,
+        #f9ce34,
+        #ee2a7b,
+        #6228d7
+    );
+
     color:#fff;
     transition:.3s;
+    font-weight:600;
 }
 
-.instagram:hover{transform:scale(1.05);}
+/* BUTTON HOVER */
+.instagram:hover{
+    transform:scale(1.05);
+}
 
+/* INSTAGRAM ICON */
+.instagram img{
+    width:22px;
+    height:22px;
+    object-fit:contain;
+}
+.instagram img{
+    filter: drop-shadow(0 0 4px rgba(255,255,255,0.4));
+}
 /* ================= TRUST ================= */
 .trust span{
     margin-right:15px;
@@ -349,7 +373,10 @@ h2{
 <div class="cta-right">
 <h2>Follow Our Work</h2>
 <p>See our latest designs</p>
-<a class="instagram" href="https://instagram.com/sammychings27" target="_blank">Instagram</a>
+<a class="instagram" href="https://instagram.com/sammychings27" target="_blank">
+    <img src="/icons/instagram.png" alt="Instagram Logo">
+    <span>Instagram</span>
+</a>
 </div>
 
 </section>
