@@ -214,18 +214,46 @@ h2{
 
 /* BUTTONS */
 .whatsapp{
-    display:inline-block;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+
     margin-top:20px;
     padding:12px 20px;
-    background:#25D366;
-    color:#fff;
+
     border-radius:30px;
     text-decoration:none;
+
+    background:#25D366;
+    color:#fff;
+
     transition:.3s;
+    font-weight:600;
+
+    box-shadow:0 0 12px rgba(37,211,102,0.35);
 }
 
-.whatsapp:hover{transform:scale(1.05);}
+.whatsapp:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 18px rgba(37,211,102,0.5);
+}
 
+/* LOGO CONTAINER */
+.whatsapp img{
+    width:22px;
+    height:22px;
+    object-fit:contain;
+
+    /* makes black transparent logo visible */
+    background:#fff;
+
+    padding:4px;
+
+    border-radius:50%;
+
+    box-shadow:0 0 4px rgba(0,0,0,0.15);
+}
+}
 .instagram{
     display:inline-flex;
     align-items:center;
@@ -367,7 +395,10 @@ h2{
 <div class="cta-left">
 <h2>Let’s Work Together</h2>
 <p>Ready to upgrade your brand?</p>
-<a class="whatsapp" href="https://wa.me/message/HTDRKVXPOCGIE1" target="_blank">WhatsApp Us</a>
+<a class="whatsapp" href="https://wa.me/message/HTDRKVXPOCGIE1" target="_blank">
+    <img src="/icons/whatsapp.png" alt="Whatsapp Logo">
+    <span>Whatsapp</span>
+</a>
 </div>
 
 <div class="cta-right">
