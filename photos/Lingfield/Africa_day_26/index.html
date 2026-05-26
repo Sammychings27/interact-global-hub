@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#ffffff" />
 
 <title>Lingfield Africa Day 2026</title>
 
-<link rel="icon" type="image/png" href="/icons/favicon.png">
-
+<link rel="icon" type="image/png" href="/icons/favicon.png" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 
 <style>
@@ -17,27 +16,37 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
 }
 
 :root{
-    --bg:#ffffff;
-    --card:#f5f5f5;
-    --text:#111111;
+    color-scheme:light dark;
+
+    --bg:#f7f7f7;
+    --surface:#ffffffcc;
+    --surface-solid:#ffffff;
+    --card:#ffffff;
+    --text:#101010;
     --muted:#666666;
-    --border:#dddddd;
-    --accent:#000000;
+    --border:#e5e5e5;
+    --accent:#111111;
+    --accent-2:#2f855a;
+    --shadow:0 10px 35px rgba(0,0,0,0.08);
+    --hover:translateY(-4px);
 }
 
-@media (prefers-color-scheme: dark){
+@media (prefers-color-scheme:dark){
 
     :root{
-        --bg:#0d0d0d;
-        --card:#161616;
-        --text:#ffffff;
-        --muted:#9e9e9e;
-        --border:#2a2a2a;
+        --bg:#090909;
+        --surface:#101010d9;
+        --surface-solid:#111111;
+        --card:#141414;
+        --text:#f5f5f5;
+        --muted:#a8a8a8;
+        --border:#242424;
         --accent:#ffffff;
+        --accent-2:#48bb78;
+        --shadow:0 12px 35px rgba(0,0,0,0.45);
     }
 
 }
@@ -47,115 +56,185 @@ html{
 }
 
 body{
-    background:var(--bg);
+    font-family:Inter, Arial, Helvetica, sans-serif;
+    background:
+    radial-gradient(circle at top left, rgba(255,215,0,0.08), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(255,0,0,0.06), transparent 30%),
+    var(--bg);
     color:var(--text);
     min-height:100vh;
     overflow-x:hidden;
+    line-height:1.5;
+}
+
+img{
+    max-width:100%;
 }
 
 header{
     position:sticky;
     top:0;
-    z-index:1000;
-    backdrop-filter:blur(14px);
-    background:rgba(255,255,255,0.82);
+    z-index:999;
+    backdrop-filter:blur(18px);
+    background:var(--surface);
     border-bottom:1px solid var(--border);
-    padding:20px 15px;
-}
-
-@media (prefers-color-scheme: dark){
-
-    header{
-        background:rgba(13,13,13,0.82);
-    }
-
 }
 
 .header-inner{
-    width:min(1500px,95%);
+    width:min(1600px,94%);
     margin:auto;
+    padding:18px 0;
+}
+
+.topbar{
     display:flex;
-    flex-direction:column;
     align-items:center;
-    text-align:center;
+    justify-content:space-between;
+    gap:20px;
+    flex-wrap:wrap;
 }
 
-.logo{
-    width:70px;
-    height:70px;
-    object-fit:contain;
-    margin-bottom:12px;
-    display: block;
-    margin-right: auto;
+.branding{
+    display:flex;
+    align-items:center;
+    gap:16px;
 }
+
+.logo-group{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.logo,
 .logo2{
-    width:70px;
-    height:70px;
+    width:64px;
+    height:64px;
     object-fit:contain;
-    margin-bottom:12px;
+    border-radius:16px;
+    background:var(--surface-solid);
+    padding:8px;
+    border:1px solid var(--border);
+    box-shadow:var(--shadow);
 }
 
-h1{
-    font-size:clamp(1.7rem,4vw,2.6rem);
-    margin-bottom:8px;
+.hero-text h1{
+    font-size:clamp(1.7rem,4vw,2.8rem);
+    font-weight:800;
+    letter-spacing:-0.03em;
+    margin-bottom:4px;
 }
 
 .subtitle{
     color:var(--muted);
-    margin-bottom:20px;
-    line-height:1.5;
+    font-size:0.98rem;
 }
 
 .controls{
     display:flex;
-    flex-wrap:wrap;
     gap:12px;
-    justify-content:center;
-    width:100%;
+    flex-wrap:wrap;
+    justify-content:flex-end;
 }
 
 .btn{
     border:none;
     outline:none;
-    padding:12px 18px;
-    border-radius:14px;
     background:var(--accent);
     color:var(--bg);
+    padding:13px 18px;
+    border-radius:16px;
     cursor:pointer;
     text-decoration:none;
-    font-weight:600;
-    transition:0.25s ease;
-    min-width:170px;
+    font-weight:700;
+    font-size:0.95rem;
+    transition:0.28s ease;
+    min-height:50px;
     display:flex;
-    justify-content:center;
     align-items:center;
+    justify-content:center;
+    min-width:170px;
+    box-shadow:var(--shadow);
 }
 
 .btn:hover{
-    transform:translateY(-2px);
-    opacity:0.9;
+    transform:var(--hover);
+    opacity:0.94;
+}
+
+.btn.secondary{
+    background:transparent;
+    color:var(--text);
+    border:1px solid var(--border);
 }
 
 .container{
-    width:min(1500px,95%);
+    width:min(1600px,94%);
     margin:auto;
-    padding:30px 0;
+    padding:34px 0 60px;
+}
+
+.info-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:18px;
+    margin-bottom:28px;
+}
+
+.info-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:24px;
+    padding:22px;
+    box-shadow:var(--shadow);
+}
+
+.info-card h3{
+    font-size:1rem;
+    margin-bottom:8px;
+}
+
+.info-card p{
+    color:var(--muted);
+    font-size:0.94rem;
 }
 
 .status{
-    text-align:center;
     color:var(--muted);
-    margin-bottom:25px;
+    font-weight:600;
+}
+
+.selection-bar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    flex-wrap:wrap;
+    margin-bottom:28px;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:24px;
+    padding:18px;
+    box-shadow:var(--shadow);
+}
+
+.selection-count{
+    font-weight:700;
+}
+
+.loader-wrap{
+    display:flex;
+    justify-content:center;
+    margin:26px 0;
 }
 
 .loader{
-    width:48px;
-    height:48px;
+    width:50px;
+    height:50px;
+    border-radius:50%;
     border:4px solid var(--border);
     border-top:4px solid var(--accent);
-    border-radius:50%;
     animation:spin 1s linear infinite;
-    margin:25px auto;
 }
 
 @keyframes spin{
@@ -172,58 +251,67 @@ h1{
 
 .gallery{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
     gap:22px;
 }
 
 .card{
     background:var(--card);
     border:1px solid var(--border);
-    border-radius:20px;
+    border-radius:26px;
     overflow:hidden;
     transition:0.3s ease;
     display:flex;
     flex-direction:column;
+    box-shadow:var(--shadow);
+    position:relative;
 }
 
 .card:hover{
-    transform:translateY(-5px);
+    transform:var(--hover);
 }
 
 .image-wrapper{
     position:relative;
-}
-
-.select-box{
-    position:absolute;
-    top:12px;
-    left:12px;
-    width:22px;
-    height:22px;
-    z-index:10;
-    cursor:pointer;
+    overflow:hidden;
 }
 
 .card img{
     width:100%;
-    aspect-ratio:1/1;
+    aspect-ratio:1 / 1;
     object-fit:cover;
     display:block;
-    background:#1a1a1a;
+    transition:0.35s ease;
+    background:#1b1b1b;
+}
+
+.card:hover img{
+    transform:scale(1.03);
+}
+
+.select-box{
+    position:absolute;
+    top:14px;
+    left:14px;
+    width:24px;
+    height:24px;
+    cursor:pointer;
+    accent-color:var(--accent-2);
+    z-index:5;
 }
 
 .card-content{
-    padding:15px;
+    padding:18px;
     display:flex;
     flex-direction:column;
     flex:1;
+    gap:16px;
 }
 
 .filename{
-    margin-bottom:15px;
-    line-height:1.5;
+    font-size:0.92rem;
+    color:var(--text);
     word-break:break-word;
-    font-size:0.9rem;
     flex:1;
 }
 
@@ -231,64 +319,82 @@ h1{
     width:100%;
     text-align:center;
     text-decoration:none;
-    padding:12px;
-    border-radius:12px;
     background:var(--accent);
     color:var(--bg);
-    font-weight:600;
+    padding:12px 14px;
+    border-radius:14px;
+    font-weight:700;
     transition:0.25s ease;
 }
 
 .download-btn:hover{
-    opacity:0.88;
+    opacity:0.92;
 }
 
 .bottom-controls{
     display:flex;
     justify-content:center;
-    margin-top:40px;
+    margin-top:38px;
 }
 
 .hidden{
     display:none;
 }
 
-.selection-bar{
-    margin-bottom:25px;
-    display:flex;
-    flex-wrap:wrap;
-    gap:12px;
-    justify-content:center;
-    align-items:center;
-}
-
-.selection-count{
-    color:var(--muted);
-    font-weight:600;
-}
-
 footer{
+    margin-top:60px;
     border-top:1px solid var(--border);
-    margin-top:50px;
-    padding:30px 20px;
+    padding:26px 20px 40px;
     text-align:center;
     color:var(--muted);
+    background:transparent;
 }
 
-@media (max-width:600px){
+@media (max-width:860px){
+
+    .topbar{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .controls{
+        width:100%;
+        justify-content:flex-start;
+    }
+
+}
+
+@media (max-width:640px){
+
+    .branding{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .logo-group{
+        width:100%;
+    }
+
+    .controls{
+        flex-direction:column;
+    }
+
+    .btn{
+        width:100%;
+        min-width:unset;
+    }
 
     .gallery{
         grid-template-columns:1fr;
     }
 
-    .btn{
-        width:100%;
+    .selection-bar{
+        align-items:stretch;
     }
 
 }
 
 </style>
-
 </head>
 
 <body>
@@ -297,28 +403,39 @@ footer{
 
     <div class="header-inner">
 
-        <img src="/icons/favicon.png" class="logo" alt="Logo">
-        <img src="/icons/las.png" class="logo2" alt="LAS Logo">
+        <div class="topbar">
 
-        <h1>Lingfield Africa Day 2026</h1>
+            <div class="branding">
 
-        <p class="subtitle">
-            Official Client Photo Download Gallery
-        </p>
+                <div class="logo-group">
+                    <img src="/icons/favicon.png" class="logo" alt="Logo" />
+                    <img src="/icons/las.png" class="logo2" alt="LAS Logo" />
+                </div>
 
-        <div class="controls">
+                <div class="hero-text">
+                    <h1>Lingfield Africa Day 2026</h1>
+                    <p class="subtitle">
+                        Official Client Photo Download Gallery
+                    </p>
+                </div>
 
-            <a href="https://sammychings27.xyz" class="btn">
-                Back to Homepage
-            </a>
+            </div>
 
-            <button class="btn" id="refreshBtn">
-                Refresh Gallery
-            </button>
+            <div class="controls">
 
-            <button class="btn" id="downloadAllBtn">
-                Download Entire ZIP
-            </button>
+                <a href="https://sammychings27.xyz" class="btn secondary">
+                    Back to Homepage
+                </a>
+
+                <button class="btn secondary" id="refreshBtn">
+                    Refresh Gallery
+                </button>
+
+                <button class="btn" id="downloadAllBtn">
+                    Download Entire ZIP
+                </button>
+
+            </div>
 
         </div>
 
@@ -328,11 +445,27 @@ footer{
 
 <div class="container">
 
-    <div class="status" id="status">
-        Preparing gallery...
+    <div class="info-grid">
+
+        <div class="info-card">
+            <h3>Gallery Status</h3>
+            <p class="status" id="status">
+                Preparing gallery...
+            </p>
+        </div>
+
+        <div class="info-card">
+            <h3>High Quality Downloads</h3>
+            <p>
+                Download individual photos or select multiple images to export them as a ZIP archive.
+            </p>
+        </div>
+
     </div>
 
-    <div class="loader" id="loader"></div>
+    <div class="loader-wrap">
+        <div class="loader" id="loader"></div>
+    </div>
 
     <div class="selection-bar">
 
@@ -341,7 +474,7 @@ footer{
         </div>
 
         <button class="btn" id="downloadSelectedBtn">
-            Download Selected
+            Download Selected Images
         </button>
 
     </div>
@@ -397,9 +530,7 @@ async function fetchImages(){
         const response = await fetch(API_URL);
 
         if(!response.ok){
-
             throw new Error("Unable to fetch images.");
-
         }
 
         const data = await response.json();
@@ -418,11 +549,9 @@ async function fetchImages(){
         ];
 
         allImages = data.filter(file =>
-
             validExtensions.some(ext =>
                 file.name.endsWith(ext)
             )
-
         );
 
         allImages.reverse();
@@ -619,16 +748,12 @@ async function downloadSelectedImages(){
 }
 
 loadMoreBtn.addEventListener("click", () => {
-
     renderNextBatch();
-
 });
 
 document.getElementById("refreshBtn")
 .addEventListener("click", () => {
-
     fetchImages();
-
 });
 
 document.getElementById("downloadAllBtn")
@@ -643,9 +768,7 @@ document.getElementById("downloadAllBtn")
 
 document.getElementById("downloadSelectedBtn")
 .addEventListener("click", () => {
-
     downloadSelectedImages();
-
 });
 
 fetchImages();
@@ -654,5 +777,3 @@ fetchImages();
 
 </body>
 </html>
-<!--Sammychings27--> 
-<!--Sammychings27-->
