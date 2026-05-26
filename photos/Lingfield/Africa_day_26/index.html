@@ -757,12 +757,57 @@ document.getElementById("refreshBtn")
 });
 
 document.getElementById("downloadAllBtn")
-.addEventListener("click", () => {
+.addEventListener("click", async () => {
 
-    const zipURL =
-    `https://github.com/${GITHUB_USERNAME}/${REPOSITORY_NAME}/archive/refs/heads/${BRANCH}.zip`;
+    if(allImages.length === 0){
+        alert("No images available.");
+        return;
+    }
 
-    window.open(zipURL,"_blank");
+    try{
+
+        statusText.textContent =
+        "Preparing full gallery ZIP download...";
+
+        const zip = new JSZip();
+
+        for(const file of allImages){
+
+            const rawURL =
+            `https://raw.githubusercontent.com/${GITHUB_USERNAME}/${REPOSITORY_NAME}/${BRANCH}/${FOLDER_PATH}/${file.name}`;
+
+            const response = await fetch(rawURL);
+            const blob = await response.blob();
+
+            zip.file(file.name, blob);
+
+        }
+
+        const content =
+        await zip.generateAsync({type:"blob"});
+
+        const link =
+        document.createElement("a");
+
+        link.href =
+        URL.createObjectURL(content);
+
+        link.download =
+        "Lingfield_Africa_Day_2026_Full_Gallery.zip";
+
+        link.click();
+
+        statusText.textContent =
+        `${allImages.length} images available`;
+
+    }catch(error){
+
+        console.error(error);
+
+        statusText.textContent =
+        "Error preparing ZIP download.";
+
+    }
 
 });
 
