@@ -2,10 +2,19 @@
 
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <url>
-    <loc>https://sammychings27.xyz/</loc>
-    <priority>1.0</priority>
-  </url>
+    <!-- Homepage -->
+    <url>
+        <loc>https://sammychings27.xyz/</loc>
+        <lastmod>2026-05-26</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
 
+    <!-- Lingfield Africa Day Gallery -->
+    <url>
+        <loc>https://sammychings27.xyz/photos/Lingfield/Africa_day_26/</loc>
+        <lastmod>2026-05-26</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.9</priority>
+    </url>
 </urlset>
-
