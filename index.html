@@ -424,9 +424,71 @@ h2{
 </div>
 
 </section>
-<footer>
-    <p>© 2026 Sammychings27 Digital| For all your technological needs</br>Founded by Samuel Takudzwa Chingosho.</p>
+<footer class="site-footer">
+  <div class="footer-content">
+    <p>
+      &copy; 2026 Sammychings27 Digital
+      <span class="divider">|</span>
+      For all your technological needs
+    </p>
+
+    <p class="founder">
+      Founded by Samuel Takudzwa Chingosho
+    </p>
+  </div>
 </footer>
+
+<style>
+  .site-footer {
+    width: 100%;
+    padding: 28px 20px;
+    margin-top: 60px;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: center;
+  }
+
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    color: rgba(255, 255, 255, 0.65);
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.7;
+  }
+
+  .footer-content p {
+    margin: 0;
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+  }
+
+  .divider {
+    margin: 0 8px;
+    opacity: 0.5;
+  }
+
+  .founder {
+    margin-top: 6px !important;
+    font-size: 0.85rem !important;
+    color: rgba(255, 255, 255, 0.45);
+  }
+
+  /* Mobile Optimization */
+  @media (max-width: 600px) {
+    .site-footer {
+      padding: 22px 15px;
+    }
+
+    .footer-content p {
+      font-size: 0.82rem;
+    }
+
+    .founder {
+      font-size: 0.75rem !important;
+    }
+  }
+</style>
 
 
 <!-- SCROLL ANIMATION -->
