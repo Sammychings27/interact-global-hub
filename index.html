@@ -1,1354 +1,587 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" class="scroll-smooth">
 <head>
-
-<!-- ========================= -->
-<!-- BASIC META -->
-<!-- ========================= -->
-
-<meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<meta http-equiv="X-UA-Compatible"
-content="IE=edge">
-
-<title>
-Sammychings27 Digital | Homepage
-</title>
-
-<meta name="theme-color"
-content="#060606">
-
-<meta name="author"
-content="Samuel Takudzwa Chingosho">
-
-<meta name="creator"
-content="Sammychings27 Digital">
-
-<meta name="publisher"
-content="Sammychings27 Digital">
-
-<meta name="robots"
-content="index, follow">
-
-<meta name="googlebot"
-content="index, follow">
-
-<meta name="language"
-content="English">
-
-<meta name="distribution"
-content="global">
-
-<meta name="revisit-after"
-content="7 days">
-
-<meta name="rating"
-content="general">
-
-<meta name="description"
-content="Sammychings27 Digital is a Zimbabwean creative agency specialising in premium branding, graphic design, website development, social media marketing, digital strategy, photography, visual storytelling and modern business identity systems.">
-
-<meta name="keywords"
-content="
-Sammychings27 Digital,
-Samuel Takudzwa Chingosho,
-Zimbabwe graphic designer,
-Zimbabwe web designer,
-Zimbabwe creative agency,
-branding Zimbabwe,
-graphic design Zimbabwe,
-website development Zimbabwe,
-digital marketing Zimbabwe,
-creative agency Harare,
-branding agency Zimbabwe,
-social media marketing,
-logo design,
-poster design,
-flyer design,
-portfolio website,
-website designer Harare,
-creative content creation,
-Lions Gold,
-KSTECH,
-Rues Cakes,
-Lingfield Advent Schools,
-photography Zimbabwe,
-visual storytelling,
-business branding,
-startup branding,
-creative studio,
-web design Africa,
-premium branding,
-technology branding,
-construction branding,
-food branding,
-school branding,
-UI design,
-UX design,
-social media graphics,
-creative entrepreneur Zimbabwe
-">
-
-<!-- ========================= -->
-<!-- OPEN GRAPH -->
-<!-- ========================= -->
-
-<meta property="og:title"
-content="Sammychings27 Digital | Premium Creative Agency">
-
-<meta property="og:description"
-content="Premium branding, websites, digital design, photography and social media strategy for modern businesses and organisations.">
-
-<meta property="og:type"
-content="website">
-
-<meta property="og:site_name"
-content="Sammychings27 Digital">
-
-<meta property="og:url"
-content="https://sammychings27.xyz">
-
-<meta property="og:image"
-content="https://sammychings27.xyz/icons/favicon.png">
-
-<meta property="og:image:width"
-content="1200">
-
-<meta property="og:image:height"
-content="630">
-
-<meta property="og:image:alt"
-content="Sammychings27 Digital Logo">
-
-<meta property="og:locale"
-content="en_ZW">
-
-<!-- ========================= -->
-<!-- TWITTER -->
-<!-- ========================= -->
-
-<meta name="twitter:card"
-content="summary_large_image">
-
-<meta name="twitter:title"
-content="Sammychings27 Digital">
-
-<meta name="twitter:description"
-content="Premium branding, web design and creative digital solutions.">
-
-<meta name="twitter:image"
-content="https://sammychings27.xyz/icons/favicon.png">
-
-<meta name="twitter:creator"
-content="@sammychings27">
-
-<meta name="twitter:site"
-content="@sammychings27">
-
-<!-- ========================= -->
-<!-- ICONS -->
-<!-- ========================= -->
-
-<link rel="icon"
-type="image/png"
-href="/icons/favicon.png">
-
-<link rel="apple-touch-icon"
-href="/icons/favicon.png">
-
-<!-- ========================= -->
-<!-- CANONICAL -->
-<!-- ========================= -->
-
-<link rel="canonical"
-href="https://sammychings27.xyz">
-
-<!-- ========================= -->
-<!-- FONTS -->
-<!-- ========================= -->
-
-<link rel="preconnect"
-href="https://fonts.googleapis.com">
-
-<link rel="preconnect"
-href="https://fonts.gstatic.com"
-crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap"
-rel="stylesheet">
-
-<!-- ========================= -->
-<!-- STRUCTURED DATA -->
-<!-- ========================= -->
-
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"Organization",
-
-  "name":"Sammychings27 Digital",
-
-  "url":"https://sammychings27.xyz",
-
-  "logo":"https://sammychings27.xyz/icons/favicon.png",
-
-  "image":"https://sammychings27.xyz/icons/favicon.png",
-
-  "description":"Zimbabwean creative agency specialising in branding, web design, graphic design, social media content and digital strategy.",
-
-  "founder":{
-    "@type":"Person",
-    "name":"Samuel Takudzwa Chingosho"
-  },
-
-  "sameAs":[
-    "https://instagram.com/sammychings27"
-  ],
-
-  "address":{
-    "@type":"PostalAddress",
-    "addressCountry":"ZW",
-    "addressLocality":"Harare"
-  }
-}
-</script>
-
-<style>
-
-/* ========================= */
-/* ROOT */
-/* ========================= */
-
-:root{
-    --bg:#050505;
-    --card:#111111;
-    --text:#ffffff;
-    --muted:#aaaaaa;
-    --gold:#d4af37;
-}
-
-/* ========================= */
-/* RESET */
-/* ========================= */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:'Poppins',sans-serif;
-    background:var(--bg);
-    color:var(--text);
-    overflow-x:hidden;
-    position:relative;
-}
-
-/* ========================= */
-/* PREMIUM GRID */
-/* ========================= */
-
-body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    z-index:-5;
-    pointer-events:none;
-
-    background-image:
-        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-
-    background-size:40px 40px;
-
-    mask-image:radial-gradient(circle at center,
-    black 35%,
-    transparent 100%);
-}
-
-/* ========================= */
-/* NOISE */
-/* ========================= */
-
-body::after{
-    content:"";
-    position:fixed;
-    inset:0;
-    z-index:-6;
-    opacity:.03;
-    pointer-events:none;
-
-    background-image:url("https://grainy-gradients.vercel.app/noise.svg");
-}
-
-/* ========================= */
-/* FLOATING ORBS */
-/* ========================= */
-
-.orb{
-    position:fixed;
-    border-radius:50%;
-    filter:blur(90px);
-    opacity:.14;
-    z-index:-4;
-    animation:floatOrb 12s ease-in-out infinite;
-}
-
-.orb1{
-    width:320px;
-    height:320px;
-    background:#7b2ff7;
-    top:-100px;
-    left:-100px;
-}
-
-.orb2{
-    width:260px;
-    height:260px;
-    background:#00c3ff;
-    top:40%;
-    right:-80px;
-    animation-delay:3s;
-}
-
-.orb3{
-    width:220px;
-    height:220px;
-    background:#d4af37;
-    bottom:-80px;
-    left:40%;
-    animation-delay:6s;
-}
-
-@keyframes floatOrb{
-    0%,100%{
-        transform:translateY(0px);
-    }
-
-    50%{
-        transform:translateY(-30px);
-    }
-}
-
-/* ========================= */
-/* PROGRESS BAR */
-/* ========================= */
-
-#progress-bar{
-    position:fixed;
-    top:0;
-    left:0;
-    width:0%;
-    height:3px;
-    z-index:999999;
-
-    background:linear-gradient(
-        90deg,
-        #00c3ff,
-        #7b2ff7,
-        #d4af37
-    );
-}
-
-/* ========================= */
-/* CURSOR GLOW */
-/* ========================= */
-
-.cursor-glow{
-    position:fixed;
-    width:260px;
-    height:260px;
-
-    background:radial-gradient(circle,
-    rgba(255,255,255,0.08) 0%,
-    transparent 70%);
-
-    border-radius:50%;
-
-    pointer-events:none;
-
-    z-index:-1;
-
-    transform:translate(-50%,-50%);
-}
-
-/* ========================= */
-/* LOGO */
-/* ========================= */
-
-.logo{
-    position:fixed;
-    top:18px;
-    left:18px;
-    z-index:9999;
-}
-
-.logo img{
-    width:80px;
-    transition:.4s;
-    filter:drop-shadow(0 0 14px rgba(212,175,55,0.35));
-}
-
-.logo img:hover{
-    transform:scale(1.05);
-}
-
-/* ========================= */
-/* NAVBAR */
-/* ========================= */
-
-header{
-    position:fixed;
-    top:20px;
-    left:50%;
-    transform:translateX(-50%);
-
-    z-index:999;
-
-    padding:16px 28px;
-
-    border-radius:50px;
-
-    background:rgba(12,12,12,0.55);
-
-    backdrop-filter:blur(14px);
-
-    border:1px solid rgba(255,255,255,0.06);
-}
-
-nav{
-    display:flex;
-    align-items:center;
-    gap:24px;
-}
-
-nav a{
-    text-decoration:none;
-    color:var(--muted);
-    font-size:.95rem;
-    transition:.3s;
-}
-
-nav a:hover{
-    color:var(--gold);
-}
-
-/* ========================= */
-/* HERO */
-/* ========================= */
-
-.hero{
-    min-height:100vh;
-
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-
-    text-align:center;
-
-    padding:20px;
-}
-
-.hero-badge{
-    padding:10px 18px;
-
-    border-radius:30px;
-
-    background:rgba(255,255,255,0.05);
-
-    border:1px solid rgba(255,255,255,0.06);
-
-    margin-bottom:28px;
-
-    font-size:.85rem;
-
-    color:var(--muted);
-
-    backdrop-filter:blur(10px);
-}
-
-.hero h1{
-    font-family:"Playfair Display",serif;
-
-    font-size:clamp(3rem,8vw,6rem);
-
-    line-height:1.02;
-
-    max-width:1000px;
-
-    letter-spacing:-2px;
-
-    background:linear-gradient(
-        to right,
-        #ffffff,
-        #d4af37
-    );
-
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-
-    animation:fadeUp 1s forwards;
-}
-
-.hero p{
-    margin-top:24px;
-
-    max-width:720px;
-
-    color:var(--muted);
-
-    line-height:1.8;
-
-    font-size:1.05rem;
-}
-
-.buttons{
-    display:flex;
-    gap:18px;
-    margin-top:40px;
-}
-
-.btn{
-    padding:15px 30px;
-
-    border-radius:40px;
-
-    font-weight:600;
-
-    text-decoration:none;
-
-    transition:.35s;
-}
-
-.primary{
-    background:var(--gold);
-    color:#000;
-}
-
-.primary:hover{
-    transform:translateY(-4px);
-}
-
-.secondary{
-    border:1px solid rgba(255,255,255,0.08);
-
-    background:rgba(255,255,255,0.03);
-
-    color:#fff;
-}
-
-.secondary:hover{
-    background:#fff;
-    color:#000;
-}
-
-/* ========================= */
-/* SECTIONS */
-/* ========================= */
-
-section{
-    padding:120px 8%;
-    max-width:1300px;
-    margin:auto;
-}
-
-h2{
-    font-family:"Playfair Display",serif;
-    font-size:clamp(2rem,5vw,3.5rem);
-    margin-bottom:20px;
-}
-
-.section-sub{
-    max-width:700px;
-    line-height:1.8;
-    color:var(--muted);
-    margin-bottom:50px;
-}
-
-/* ========================= */
-/* GRID */
-/* ========================= */
-
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:28px;
-}
-
-/* ========================= */
-/* CARDS */
-/* ========================= */
-
-.card{
-    background:rgba(255,255,255,0.03);
-
-    border:1px solid rgba(255,255,255,0.05);
-
-    border-radius:26px;
-
-    overflow:hidden;
-
-    transition:.45s;
-
-    backdrop-filter:blur(10px);
-}
-
-.card:hover{
-    transform:translateY(-10px);
-    border-color:rgba(212,175,55,0.4);
-}
-
-/* ========================= */
-/* SERVICES */
-/* ========================= */
-
-.service-card{
-    padding:35px;
-}
-
-.service-card h3{
-    margin-bottom:14px;
-    font-size:1.3rem;
-}
-
-.service-card p{
-    color:var(--muted);
-    line-height:1.8;
-}
-
-/* ========================= */
-/* PORTFOLIO */
-/* ========================= */
-
-.portfolio-card img{
-    width:100%;
-    height:300px;
-    object-fit:cover;
-    transition:.6s ease;
-}
-
-.portfolio-card:hover img{
-    transform:scale(1.06);
-}
-
-.portfolio-info{
-    padding:24px;
-}
-
-.portfolio-info h3{
-    margin-bottom:8px;
-}
-
-.portfolio-info p{
-    color:var(--muted);
-}
-
-/* ========================= */
-/* TRUST */
-/* ========================= */
-
-.trust{
-    display:flex;
-    flex-wrap:wrap;
-    gap:18px;
-    margin-top:30px;
-}
-
-.trust span{
-    padding:14px 22px;
-
-    border-radius:40px;
-
-    background:rgba(255,255,255,0.04);
-
-    border:1px solid rgba(255,255,255,0.06);
-
-    color:var(--muted);
-}
-
-/* ========================= */
-/* ABOUT */
-/* ========================= */
-
-.about-box{
-    background:rgba(255,255,255,0.03);
-
-    border:1px solid rgba(255,255,255,0.05);
-
-    border-radius:30px;
-
-    padding:55px;
-}
-
-.about-box p{
-    color:var(--muted);
-    line-height:1.9;
-}
-
-/* ========================= */
-/* CTA */
-/* ========================= */
-
-.cta{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:30px;
-}
-
-.cta-box{
-    padding:60px 40px;
-
-    border-radius:30px;
-
-    background:rgba(255,255,255,0.03);
-
-    border:1px solid rgba(255,255,255,0.05);
-
-    text-align:center;
-}
-
-.cta-box p{
-    color:var(--muted);
-    margin-top:12px;
-}
-
-.social-btn{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    gap:10px;
-
-    margin-top:28px;
-
-    padding:14px 24px;
-
-    border-radius:40px;
-
-    text-decoration:none;
-
-    font-weight:600;
-
-    transition:.35s;
-}
-
-.social-btn:hover{
-    transform:scale(1.05);
-}
-
-.social-btn img{
-    width:22px;
-}
-
-.email{
-    background:#ffffff;
-    color:#000000;
-}
-
-.instagram{
-    background:linear-gradient(
-        45deg,
-        #f9ce34,
-        #ee2a7b,
-        #6228d7
-    );
-
-    color:#ffffff;
-}
-
-/* ========================= */
-/* FOOTER */
-/* ========================= */
-
-.site-footer{
-    margin-top:100px;
-
-    padding:40px 20px;
-
-    border-top:1px solid rgba(255,255,255,0.05);
-
-    text-align:center;
-
-    color:rgba(255,255,255,0.55);
-}
-
-.site-footer p{
-    line-height:1.8;
-}
-
-.founder{
-    font-size:.9rem;
-    opacity:.65;
-}
-
-/* ========================= */
-/* ANIMATIONS */
-/* ========================= */
-
-.hidden{
-    opacity:0;
-    transform:translateY(50px);
-    transition:1s ease;
-}
-
-.show{
-    opacity:1;
-    transform:translateY(0);
-}
-
-@keyframes fadeUp{
-    from{
-        opacity:0;
-        transform:translateY(30px);
-    }
-
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-
-/* ========================= */
-/* MOBILE */
-/* ========================= */
-
-@media(max-width:900px){
-
-    header{
-        width:92%;
-    }
-
-    nav{
-        flex-wrap:wrap;
-        justify-content:center;
-        gap:14px;
-    }
-
-    .hero{
-        padding-top:140px;
-    }
-
-    .hero p{
-        font-size:.95rem;
-    }
-
-    .buttons{
-        flex-direction:column;
-        width:100%;
-        max-width:320px;
-    }
-
-    .btn{
-        width:100%;
-        text-align:center;
-    }
-
-    .cta{
-        grid-template-columns:1fr;
-    }
-
-    .portfolio-card img{
-        height:230px;
-    }
-
-    section{
-        padding:90px 6%;
-    }
-
-    .about-box{
-        padding:35px;
-    }
-
-    .logo img{
-        width:60px;
-    }
-}
-
-</style>
-
+    <!-- ========================= -->
+    <!-- ELITE SEO & META -->
+    <!-- ========================= -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Schingsdigital | Premium Creative Agency</title>
+    <meta name="description" content="Schingsdigital is a premium creative agency specialising in high-end branding, digital strategy, and minimalist web development.">
+    <meta name="theme-color" content="#050505">
+
+    <!-- OPEN GRAPH -->
+    <meta property="og:title" content="Schingsdigital | Digital Excellence">
+    <meta property="og:description" content="Strictly premium branding, web design, and digital strategy.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://schingsdigital.com">
+    
+    <!-- ICONS -->
+    <link rel="icon" type="image/png" href="/icons/favicon.png">
+    <link rel="apple-touch-icon" href="/icons/favicon.png">
+
+    <!-- ========================= -->
+    <!-- TYPOGRAPHY -->
+    <!-- ========================= -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Space Grotesk for avant-garde headers, Inter for supreme readability -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <!-- ========================= -->
+    <!-- DESIGN SYSTEM (MONOCHROME)-->
+    <!-- ========================= -->
+    <style>
+        :root {
+            /* Strict Monochrome Palette */
+            --bg: #050505;
+            --text: #F5F5F5;
+            --border: rgba(255, 255, 255, 0.15);
+            --border-hover: rgba(255, 255, 255, 0.5);
+            
+            --font-sans: 'Inter', sans-serif;
+            --font-display: 'Space Grotesk', sans-serif;
+            
+            --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: none; /* We use a custom inverted cursor */
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        ::selection {
+            background: var(--text);
+            color: var(--bg);
+        }
+
+        /* ========================= */
+        /* LIVE ELEMENTS: FILM NOISE */
+        /* ========================= */
+        .noise {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            pointer-events: none;
+            z-index: 9998;
+            opacity: 0.04;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        /* ========================= */
+        /* LIVE ELEMENTS: CUSTOM CURSOR */
+        /* ========================= */
+        .cursor-dot, .cursor-outline {
+            position: fixed;
+            top: 0; left: 0;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            z-index: 9999;
+            pointer-events: none;
+            mix-blend-mode: difference; /* Mathematical Color Inversion */
+        }
+        .cursor-dot {
+            width: 8px;
+            height: 8px;
+            background-color: white;
+            transition: width 0.3s var(--ease-out), height 0.3s var(--ease-out);
+        }
+        .cursor-outline {
+            width: 40px;
+            height: 40px;
+            border: 1px solid white;
+            transition: width 0.3s var(--ease-out), height 0.3s var(--ease-out), background-color 0.3s;
+        }
+        
+        /* Cursor Hover States */
+        body.hovering .cursor-outline {
+            width: 80px;
+            height: 80px;
+            background-color: white;
+            border-color: transparent;
+        }
+        body.hovering .cursor-dot { opacity: 0; }
+
+        /* ========================= */
+        /* TYPOGRAPHY */
+        /* ========================= */
+        h1, h2, h3, .display-text {
+            font-family: var(--font-display);
+            text-transform: uppercase;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+        }
+
+        a, button {
+            color: inherit;
+            text-decoration: none;
+            font-family: var(--font-sans);
+        }
+
+        /* ========================= */
+        /* NAVIGATION */
+        /* ========================= */
+        header {
+            position: fixed;
+            top: 0; width: 100%;
+            padding: 2rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 900;
+            mix-blend-mode: difference;
+        }
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.05em;
+        }
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+        }
+        .nav-links a {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            padding: 10px;
+        }
+
+        /* ========================= */
+        /* HERO SECTION */
+        /* ========================= */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 4rem;
+        }
+        .hero h1 {
+            font-size: clamp(4rem, 12vw, 12rem);
+            margin-left: -0.5vw; /* Optical alignment */
+        }
+        .hero-sub {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+        .hero-sub p {
+            max-width: 400px;
+            color: #A0A0A0;
+        }
+
+        /* ========================= */
+        /* LIVE ELEMENT: INFINITE MARQUEE */
+        /* ========================= */
+        .marquee-wrapper {
+            width: 100%;
+            overflow: hidden;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 1.5rem 0;
+            background: var(--bg);
+        }
+        .marquee {
+            display: flex;
+            white-space: nowrap;
+            animation: marquee 20s linear infinite;
+        }
+        .marquee span {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            margin-right: 3rem;
+            -webkit-text-stroke: 1px var(--text);
+            color: transparent;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* ========================= */
+        /* GRID LAYOUTS */
+        /* ========================= */
+        section {
+            padding: 8rem 4rem;
+        }
+        .section-header {
+            font-size: 3rem;
+            margin-bottom: 4rem;
+        }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        /* ========================= */
+        /* PORTFOLIO / WORK (MONOCHROME REVEAL) */
+        /* ========================= */
+        .work-card {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+        .img-wrapper {
+            width: 100%;
+            aspect-ratio: 4/5;
+            overflow: hidden;
+        }
+        .img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Core Effect: Grayscale by default, color on hover */
+            filter: grayscale(100%) contrast(1.1);
+            transition: transform 1s var(--ease-out), filter 0.5s var(--ease-out);
+        }
+        .work-card:hover .img-wrapper img {
+            transform: scale(1.05);
+            filter: grayscale(0%) contrast(1);
+        }
+        .work-info {
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border);
+            background: var(--bg);
+        }
+        .work-info h3 { font-size: 1.5rem; }
+        .work-info span { font-size: 0.85rem; color: #A0A0A0; }
+
+        /* ========================= */
+        /* EXPERTISE / SERVICES (ACCORDION) */
+        /* ========================= */
+        .service-row {
+            border-top: 1px solid var(--border);
+            padding: 2.5rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            transition: padding-left 0.4s var(--ease-out), color 0.4s;
+        }
+        .service-row:hover {
+            padding-left: 2rem;
+            color: #fff;
+            border-top-color: var(--border-hover);
+        }
+        .service-row h3 {
+            font-size: 2.5rem;
+            width: 50%;
+        }
+        .service-row p {
+            width: 50%;
+            color: #A0A0A0;
+        }
+        .service-row:last-child {
+            border-bottom: 1px solid var(--border);
+        }
+
+        /* ========================= */
+        /* FOOTER & SOCIALS */
+        /* ========================= */
+        footer {
+            padding: 8rem 4rem 2rem 4rem;
+            background: var(--text);
+            color: var(--bg);
+            text-align: center;
+        }
+        footer h2 {
+            font-size: clamp(3rem, 8vw, 8rem);
+            margin-bottom: 4rem;
+        }
+        .social-grid {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 6rem;
+        }
+        /* Magnetic Social Buttons */
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 1px solid var(--bg);
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .social-btn svg { width: 28px; height: 28px; }
+        
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid rgba(0,0,0,0.1);
+            padding-top: 2rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* ========================= */
+        /* SCROLL REVEAL (Intersection Observer) */
+        /* ========================= */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s var(--ease-out);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            header { padding: 1.5rem; }
+            .nav-links { display: none; }
+            .hero { padding: 0 1.5rem; }
+            .hero-sub { flex-direction: column; align-items: flex-start; gap: 2rem; }
+            section { padding: 4rem 1.5rem; }
+            .grid-2 { grid-template-columns: 1fr; }
+            .service-row { flex-direction: column; gap: 1rem; }
+            .service-row h3, .service-row p { width: 100%; }
+            footer { padding: 4rem 1.5rem 2rem 1.5rem; }
+            .footer-bottom { flex-direction: column; gap: 1rem; text-align: left; }
+        }
+    </style>
 </head>
-
 <body>
 
-<!-- ========================= -->
-<!-- PREMIUM EFFECTS -->
-<!-- ========================= -->
-
-<div id="progress-bar"></div>
-
-<div class="orb orb1"></div>
-<div class="orb orb2"></div>
-<div class="orb orb3"></div>
-
-<div class="cursor-glow"></div>
-
-<!-- ========================= -->
-<!-- LOGO -->
-<!-- ========================= -->
-
-<div class="logo">
-<img src="/icons/favicon.png" alt="Logo">
-</div>
-
-<!-- ========================= -->
-<!-- NAVBAR -->
-<!-- ========================= -->
-
-<header>
-
-<nav>
-
-<a href="#services">
-Services
-</a>
-
-<a href="#work">
-Work
-</a>
-
-<a href="#about">
-About
-</a>
-
-<a href="#contact">
-Contact
-</a>
-
-<a href="/photos/Lingfield/Africa_day_26/index.html">
-Gallery
-</a>
-
-</nav>
-
-</header>
-
-<!-- ========================= -->
-<!-- HERO -->
-<!-- ========================= -->
-
-<section class="hero">
-
-<div class="hero-badge">
-Creative Agency • Branding • Strategy • Design
-</div>
-
-<h1>
-We Build Premium Brands That Dominate Attention
-</h1>
-
-<p>
-Sammychings27 Digital creates powerful branding,
-websites, visual content and digital experiences
-for modern businesses, startups and organisations.
-</p>
-
-<div class="buttons">
-
-<a href="#contact"
-class="btn primary">
-
-Work With Us
-
-</a>
-
-<a href="#work"
-class="btn secondary">
-
-View Portfolio
-
-</a>
-
-</div>
-
-</section>
-
-<!-- ========================= -->
-<!-- SERVICES -->
-<!-- ========================= -->
-
-<section id="services"
-class="hidden">
-
-<h2>
-Services
-</h2>
-
-<p class="section-sub">
-Creative solutions designed to help brands
-grow, stand out and communicate professionally.
-</p>
-
-<div class="grid">
-
-<div class="card service-card">
-
-<h3>
-Graphic Design
-</h3>
-
-<p>
-Professional posters, flyers,
-advertisements, social media graphics
-and promotional visuals.
-</p>
-
-</div>
-
-<div class="card service-card">
-
-<h3>
-Brand Identity
-</h3>
-
-<p>
-Modern logo systems and visual identities
-that build trust and recognition.
-</p>
-
-</div>
-
-<div class="card service-card">
-
-<h3>
-Web Design
-</h3>
-
-<p>
-Responsive modern websites designed
-for speed, clarity and premium presentation.
-</p>
-
-</div>
-
-<div class="card service-card">
-
-<h3>
-Social Media Strategy
-</h3>
-
-<p>
-Content and campaigns developed
-for visibility, engagement and growth.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ========================= -->
-<!-- WORK -->
-<!-- ========================= -->
-
-<section id="work"
-class="hidden">
-
-<h2>
-Selected Work
-</h2>
-
-<p class="section-sub">
-A selection of branding, promotional
-and creative projects developed for
-businesses and organisations.
-</p>
-
-<div class="grid">
-
-<div class="card portfolio-card">
-
-<img src="/photos/cilents/Lions Gold construction poster.png"
-alt="Lions Gold">
-
-<div class="portfolio-info">
-
-<h3>
-Lions Gold
-</h3>
-
-<p>
-Construction Branding & Marketing
-</p>
-
-</div>
-
-</div>
-
-<div class="card portfolio-card">
-
-<img src="/photos/cilents/KSTECH poster.png"
-alt="KSTECH">
-
-<div class="portfolio-info">
-
-<h3>
-KSTECH
-</h3>
-
-<p>
-Technology Brand Identity
-</p>
-
-</div>
-
-</div>
-
-<div class="card portfolio-card">
-
-<img src="/photos/cilents/rues cakes poster.png"
-alt="Rues Cakes">
-
-<div class="portfolio-info">
-
-<h3>
-Rues Cakes
-</h3>
-
-<p>
-Bakery Promotions & Brand Design
-</p>
-
-</div>
-
-</div>
-
-<div class="card portfolio-card">
-
-<img src="/photos/cilents/lingfield mothers day poster.png"
-alt="Lingfield Advent Schools">
-
-<div class="portfolio-info">
-
-<h3>
-Lingfield Advent Schools
-</h3>
-
-<p>
-School Campaign Graphics
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ========================= -->
-<!-- TRUST -->
-<!-- ========================= -->
-
-<section class="hidden">
-
-<h2>
-Trusted By
-</h2>
-
-<div class="trust">
-
-<span>
-Lions Gold
-</span>
-
-<span>
-KSTECH
-</span>
-
-<span>
-Rues Cakes
-</span>
-
-<span>
-Lingfield Advent Schools
-</span>
-
-</div>
-
-</section>
-
-<!-- ========================= -->
-<!-- ABOUT -->
-<!-- ========================= -->
-
-<section id="about"
-class="hidden">
-
-<div class="about-box">
-
-<h2>
-About Sammychings27 Digital
-</h2>
-
-<p>
-Sammychings27 Digital is a Zimbabwean
-creative agency focused on branding,
-digital design, photography, websites,
-social media content and visual storytelling
-for modern businesses, schools, startups
-and organisations.
-<br><br>
-Founded by Samuel Takudzwa Chingosho,
-the agency combines creativity, strategy
-and modern aesthetics to help brands
-build a stronger digital presence.
-</p>
-
-</div>
-
-</section>
-
-<!-- ========================= -->
-<!-- CONTACT -->
-<!-- ========================= -->
-
-<section id="contact"
-class="hidden">
-
-<div class="cta">
-
-<div class="cta-box">
-
-<h2>
-Let’s Work Together
-</h2>
-
-<p>
-Ready to elevate your brand
-and digital presence?
-</p>
-
-<a class="social-btn email"
-href="mailto:admin@sammychings27.xyz">
-
-<img src="/icons/email.png"
-alt="Email">
-
-<span>
-Email Us
-</span>
-
-</a>
-
-</div>
-
-<div class="cta-box">
-
-<h2>
-Follow Our Work
-</h2>
-
-<p>
-See our latest projects
-and creative campaigns.
-</p>
-
-<a class="social-btn instagram"
-href="https://instagram.com/sammychings27"
-target="_blank">
-
-<img src="/icons/instagram.png"
-alt="Instagram">
-
-<span>
-Instagram
-</span>
-
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ========================= -->
-<!-- FOOTER -->
-<!-- ========================= -->
-
-<footer class="site-footer">
-
-<p>
-© 2026 Sammychings27 Digital |
-For all your technological needs
-</p>
-
-<p class="founder">
-Founded by Samuel Takudzwa Chingosho
-</p>
-
-</footer>
-
-<!-- ========================= -->
-<!-- SCRIPTS -->
-<!-- ========================= -->
-
-<script>
-
-/* SCROLL BAR */
-
-window.addEventListener("scroll",()=>{
-
-const scroll =
-window.scrollY;
-
-const height =
-document.documentElement.scrollHeight -
-window.innerHeight;
-
-document.getElementById("progress-bar")
-.style.width =
-(scroll / height) * 100 + "%";
-
-});
-
-/* CURSOR GLOW */
-
-const glow =
-document.querySelector(".cursor-glow");
-
-document.addEventListener("mousemove", e => {
-
-glow.style.left =
-e.clientX + "px";
-
-glow.style.top =
-e.clientY + "px";
-
-});
-
-/* SCROLL REVEAL */
-
-const observer =
-new IntersectionObserver((entries)=>{
-
-entries.forEach(entry=>{
-
-if(entry.isIntersecting){
-
-entry.target.classList.add("show");
-
-}
-
-});
-
-});
-
-document.querySelectorAll(".hidden")
-.forEach(el=>{
-
-observer.observe(el);
-
-});
-
-</script>
-
+    <!-- LIVE ELEMENTS -->
+    <div class="noise"></div>
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- NAVIGATION -->
+    <header>
+        <div class="logo magnetic">SCHINGSDIGITAL</div>
+        <nav class="nav-links">
+            <a href="#expertise" class="magnetic hover-target">Expertise</a>
+            <a href="#work" class="magnetic hover-target">Work</a>
+            <a href="#contact" class="magnetic hover-target">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- HERO -->
+        <section class="hero">
+            <h1 class="reveal">DIGITAL<br>EXCELLENCE.</h1>
+            <div class="hero-sub reveal" style="transition-delay: 0.2s;">
+                <p>We forge uncompromising brand identities, digital strategy, and minimalist web experiences for the modern era.</p>
+                <!-- Magnetic CTA -->
+                <a href="#contact" class="magnetic hover-target" style="border: 1px solid var(--border); padding: 1rem 3rem; border-radius: 100px; text-transform: uppercase; font-size: 0.85rem;">Initiate Project</a>
+            </div>
+        </section>
+
+        <!-- INFINITE MARQUEE -->
+        <div class="marquee-wrapper">
+            <div class="marquee hover-target">
+                <span>Creative Agency • Branding • Digital Strategy • Web Design • Minimalist Architecture • </span>
+                <span>Creative Agency • Branding • Digital Strategy • Web Design • Minimalist Architecture • </span>
+            </div>
+        </div>
+
+        <!-- EXPERTISE / SERVICES -->
+        <section id="expertise">
+            <h2 class="section-header reveal">Our Disciplines</h2>
+            <div class="reveal">
+                <div class="service-row hover-target">
+                    <h3>Brand Identity</h3>
+                    <p>Monolithic logo systems, monochrome visual languages, and typography structures that command absolute market authority.</p>
+                </div>
+                <div class="service-row hover-target">
+                    <h3>Web Engineering</h3>
+                    <p>High-performance, physics-driven web applications built on modern frameworks. Perfect lighthouse scores. Flawless UX.</p>
+                </div>
+                <div class="service-row hover-target">
+                    <h3>Digital Strategy</h3>
+                    <p>Data-driven social campaigns and aesthetic content curation designed for maximum algorithmic velocity and conversion.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- WORK / PORTFOLIO -->
+        <section id="work">
+            <h2 class="section-header reveal">Selected Archives</h2>
+            <div class="grid-2">
+                <!-- Project 1 -->
+                <div class="work-card reveal hover-target">
+                    <div class="img-wrapper">
+                        <img src="/photos/cilents/Lions Gold construction poster.png" alt="Lions Gold">
+                    </div>
+                    <div class="work-info">
+                        <h3>Lions Gold</h3>
+                        <span>Construction</span>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="work-card reveal hover-target" style="transition-delay: 0.2s;">
+                    <div class="img-wrapper">
+                        <img src="/photos/cilents/KSTECH poster.png" alt="KSTECH">
+                    </div>
+                    <div class="work-info">
+                        <h3>KSTECH</h3>
+                        <span>Technology</span>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="work-card reveal hover-target">
+                    <div class="img-wrapper">
+                        <img src="/photos/cilents/rues cakes poster.png" alt="Rues Cakes">
+                    </div>
+                    <div class="work-info">
+                        <h3>Rues Cakes</h3>
+                        <span>Hospitality</span>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="work-card reveal hover-target" style="transition-delay: 0.2s;">
+                    <div class="img-wrapper">
+                        <img src="/photos/cilents/lingfield mothers day poster.png" alt="Lingfield Advent">
+                    </div>
+                    <div class="work-info">
+                        <h3>Lingfield Advent</h3>
+                        <span>Education</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="contact">
+        <h2 class="reveal hover-target">LET'S TALK</h2>
+        
+        <div class="social-grid reveal">
+            <!-- X (Twitter) Perfect SVG -->
+            <a href="https://x.com/schingsdigital" target="_blank" rel="noopener noreferrer" class="social-btn magnetic hover-target" aria-label="X (Twitter)">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+            </a>
+            
+            <!-- Instagram Perfect SVG -->
+            <a href="https://www.instagram.com/schingsdigital" target="_blank" rel="noopener noreferrer" class="social-btn magnetic hover-target" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                </svg>
+            </a>
+
+            <!-- Facebook Perfect SVG -->
+            <a href="https://www.facebook.com/share/17THTSPuUU/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="social-btn magnetic hover-target" aria-label="Facebook">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+            </a>
+        </div>
+
+        <div class="footer-bottom">
+            <span>© 2026 Schingsdigital</span>
+            <span>Trademark: Sammychings27 Digital</span>
+        </div>
+    </footer>
+
+    <!-- ========================= -->
+    <!-- LIVE PHYSICS & INTERACTIONS -->
+    <!-- ========================= -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. CUSTOM INVERTED CURSOR PHYSICS
+            const dot = document.querySelector('.cursor-dot');
+            const outline = document.querySelector('.cursor-outline');
+            
+            // Physics Lerp (Linear Interpolation) for smooth trailing
+            let mouseX = window.innerWidth / 2;
+            let mouseY = window.innerHeight / 2;
+            let outlineX = mouseX;
+            let outlineY = mouseY;
+
+            window.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                
+                // Dot follows instantly
+                dot.style.left = `${mouseX}px`;
+                dot.style.top = `${mouseY}px`;
+            });
+
+            // Animate outline with spring physics
+            const renderCursor = () => {
+                outlineX += (mouseX - outlineX) * 0.15; // The trailing effect
+                outlineY += (mouseY - outlineY) * 0.15;
+                outline.style.left = `${outlineX}px`;
+                outline.style.top = `${outlineY}px`;
+                requestAnimationFrame(renderCursor);
+            };
+            renderCursor();
+
+            // Expand cursor on hover targets
+            const hoverTargets = document.querySelectorAll('.hover-target');
+            hoverTargets.forEach(target => {
+                target.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
+                target.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
+            });
+
+            // 2. MAGNETIC BUTTON PHYSICS
+            const magnetics = document.querySelectorAll('.magnetic');
+            magnetics.forEach(btn => {
+                btn.addEventListener('mousemove', function(e) {
+                    const rect = this.getBoundingClientRect();
+                    const x = e.clientX - rect.left - rect.width / 2;
+                    const y = e.clientY - rect.top - rect.height / 2;
+                    
+                    // Pull intensity (lower = stronger pull)
+                    this.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+                });
+                
+                btn.addEventListener('mouseleave', function() {
+                    // Snap back to center
+                    this.style.transform = `translate(0px, 0px)`;
+                    this.style.transition = `transform 0.5s cubic-bezier(0.22, 1, 0.36, 1)`;
+                });
+                
+                btn.addEventListener('mouseenter', function() {
+                    this.style.transition = `none`; // Remove transition while moving for instant response
+                });
+            });
+
+            // 3. SCROLL REVEAL (Intersection Observer)
+            const reveals = document.querySelectorAll('.reveal');
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+
+            reveals.forEach(el => revealObserver.observe(el));
+        });
+    </script>
 </body>
 </html>
